@@ -2,39 +2,123 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-<title>แฟ้มสะสมงานของฉัน</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แฟ้มสะสมงานของฉัน (My Portfolio)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 <style>
-body { font-family: sans-serif; background-color: #745085; text-align: center;
-padding: 30px; }
-.container { max-width: 800px; margin: 0 auto; }
-.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
-8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-.btn { display: inline-block; background: #6c794e; color: white; padding: 10px
-20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Kanit', sans-serif;
+    background: linear-gradient(135deg,#745085,#8a68a0);
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+}
+
+h1{
+    color:white;
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#f3f3f3;
+    margin-bottom:35px;
+    font-size:1.1rem;
+}
+
+.project-card{
+    background:white;
+    padding:25px;
+    margin:20px 0;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    transition:0.3s;
+    text-align:left;
+    border-left:6px solid #6c794e;
+}
+
+.project-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.project-card h3{
+    color:#745085;
+    margin-bottom:10px;
+}
+
+.project-card p{
+    color:#555;
+    line-height:1.6;
+}
+
+.btn{
+    display:inline-block;
+    background:#6c794e;
+    color:white;
+    padding:12px 28px;
+    text-decoration:none;
+    border-radius:30px;
+    margin-top:25px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#5b6742;
+    transform:scale(1.05);
+}
+
+.footer{
+    color:white;
+    margin-top:25px;
+    opacity:0.8;
+    font-size:0.9rem;
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
-<h1>แฟ้มสะสมงาน(Portfolio)</h1>
-<p>นี่คือพื้นที่รวบรวมผลงานหรือกิจกรรมค่ะ</p>
-<!-- กล่องผลงานชิ้นที่ 1 -->
-<div class="project-card">
-<h3>1.คำนำ</h3>
-<p>รายละเอียด</p>
+
+    <h1>📖 แฟ้มสะสมงาน (Portfolio)</h1>
+    <p class="subtitle">นี่คือพื้นที่รวบรวมผลงานหรือกิจกรรมและข้อมูลส่วนตัวค่ะ</p>
+
+    <div class="project-card">
+        <h3>1. ความสนใจ</h3>
+        <p>รายละเอียด</p>
+    </div>
+
+    <div class="project-card">
+        <h3>2. กิจกรรม / เกียรติบัตรที่ได้รับ</h3>
+        <p>กิจกรรมที่เข้าร่วม ผลงาน และเกียรติบัตรที่ได้รับ</p>
+    </div>
+
+    <div class="project-card">
+        <h3>3. ประวัติส่วนตัว</h3>
+        <p>รายละเอียด</p>
+    </div>
+
+    <a href="index.html" class="btn">👈🏻 กลับหน้าแรก</a>
+
+    <div class="footer">
+        © 2025 My Portfolio
+    </div>
+
 </div>
-<!-- กล่องผลงานชิ้นที่ 2 -->
-<div class="project-card">
-<h3>2.กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดชิ้นงาน : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
-</div>
-<!-- กล่องผลงานชิ้นที่ 3 -->
-<div class="project-card">
-<h3>3.ประวัติส่วนตัว</h3>
-<p>รายละเอียด</p>
-</div>
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
-</div>
+
 </body>
 </html>
