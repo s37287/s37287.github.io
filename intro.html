@@ -82,7 +82,7 @@
       background: rgba(255, 255, 255, 0.07);
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 28px;
-      padding: 45px;
+      padding: 50px 45px;
       backdrop-filter: blur(20px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       position: relative;
@@ -106,65 +106,52 @@
       background: linear-gradient(90deg, #ffffff, #d8b4fe);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       display: flex;
       align-items: center;
       gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 15px;
     }
 
     /* กล่องข้อความเนื้อหาคำนำ */
     .intro-text {
-      font-size: 1.08rem;
-      line-height: 1.9;
+      font-size: 1.1rem;
+      line-height: 2;
       color: #e9d5ff;
       font-weight: 300;
       text-align: justify;
     }
 
     .intro-text p {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       text-indent: 2.5em;
     }
 
-    /* การ์ดไฮไลท์เป้าหมาย */
-    .highlight-box {
-      background: rgba(168, 85, 247, 0.15);
-      border-left: 4px solid #c084fc;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 30px 0;
-    }
-
-    .highlight-box p {
-      text-indent: 0;
-      margin-bottom: 0;
-      font-weight: 400;
-      color: #f3e8ff;
-    }
-
-    /* ส่วนท้ายคำนำและลายเซ็น */
+    /* ส่วนผู้จัดทำ */
     .signature-section {
-      margin-top: 30px;
+      margin-top: 40px;
       display: flex;
       justify-content: flex-end;
-      text-align: right;
+      text-align: center;
     }
 
     .signature-box {
-      border-top: 1px dashed rgba(255, 255, 255, 0.2);
+      border-top: 1px dashed rgba(255, 255, 255, 0.25);
       padding-top: 15px;
-      display: inline-block;
-    }
-
-    .signature-name {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #ffffff;
+      min-width: 180px;
     }
 
     .signature-title {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #c084fc;
+      margin-bottom: 5px;
+    }
+
+    .signature-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
     }
 
     /* โซนปุ่มย้อนกลับด้านล่าง */
@@ -212,13 +199,13 @@
 
     @media (max-width: 600px) {
       .intro-card {
-        padding: 30px 20px;
+        padding: 35px 20px;
       }
       .page-title {
         font-size: 1.7rem;
       }
       .intro-text {
-        font-size: 0.98rem;
+        font-size: 1rem;
       }
     }
   </style>
@@ -246,29 +233,19 @@
 
       <div class="intro-text">
         <p>
-          แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้ จัดทำขึ้นเพื่อนำเสนอประวัติ ความรู้ ความสามารถ ทักษะ ตลอดจนผลงานและกิจกรรมต่าง ๆ ของข้าพเจ้า **นางสาว วารุณี ลิภูนนท์** โดยมีเป้าหมายสำคัญในการสะท้อนตัวตน ความมุ่งมั่น และความตั้งใจจริงในการเข้าศึกษาต่อในระดับอุดมศึกษา
-        </p>
-
-        <div class="highlight-box">
-          <p>
-            ✨ *"การเรียนรู้ที่ไร้ขีดจำกัด ผสานกับความหลงใหลในวิทยาศาสตร์และเทคโนโลยี คือแรงขับเคลื่อนสำคัญที่ทำให้ข้าพเจ้าพร้อมพัฒนาตนเองอย่างต่อเนื่อง"*
-          </p>
-        </div>
-
-        <p>
-          เนื้อหาภายในเล่มประกอบด้วย ประวัติส่วนตัว ประวัติการศึกษา ผลงานทางวิชาการ กิจกรรมจิตอาสา และทักษะการแก้ปัญหาเฉพาะหน้า ซึ่งทุกประสบการณ์ที่ผ่านมาล้วนหล่อหลอมให้ข้าพเจ้ามีความพร้อมทั้งด้านวิชาการและทักษะการดำเนินชีวิต
+          แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ประวัติการศึกษา การเข้าร่วมกิจกรรม และประสบการณ์ต่าง ๆ ที่ได้เรียนรู้ตลอดช่วงเวลาที่ผ่านมา เพื่อแสดงให้เห็นถึงความตั้งใจ ความสามารถ และความสนใจในด้านต่าง ๆ ของข้าพเจ้า
         </p>
 
         <p>
-          ข้าพเจ้าขอขอบพระคุณคณะครูอาจารย์ ครอบครัว และเพื่อน ๆ ทุกท่าน ที่ได้ให้การสนับสนุน คำแนะนำ และกำลังใจที่ดีแก่ข้าพเจ้ามาโดยตลอด ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานฉบับนี้จะทำให้ทุกท่านได้เห็นถึงศักยภาพและความพร้อมของข้าพเจ้าอย่างชัดเจน
+          ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานเล่มนี้จะช่วยให้ผู้อ่านได้รู้จักตัวตน ความสามารถ และความมุ่งมั่นของข้าพเจ้ามากยิ่งขึ้น รวมถึงเป็นส่วนหนึ่งในการแสดงความตั้งใจของข้าพเจ้าที่จะเข้าศึกษาต่อในระดับอุดมศึกษา
         </p>
       </div>
 
-      <!-- ลายเซ็นส่วนท้าย -->
+      <!-- ส่วนผู้จัดทำ -->
       <div class="signature-section">
         <div class="signature-box">
+          <div class="signature-title">จัดทำโดย</div>
           <div class="signature-name">วารุณี ลิภูนนท์</div>
-          <div class="signature-title">ผู้จัดทำ</div>
         </div>
       </div>
 
@@ -277,7 +254,7 @@
     <!-- ปุ่มย้อนกลับด้านล่าง -->
     <div class="bottom-bar">
       <a href="main.html" class="btn-back">
-        <span>⬅</span> back
+        <span>⬅</span> ย้อนกลับหน้าเมนูหลัก
       </a>
     </div>
 
