@@ -1,126 +1,204 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>หน้าแนะนำตัวของฉัน</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Warunee's Profile</title>
+  <!-- Google Fonts: Prompt & Kanit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', 'Kanit', sans-serif;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2b1055 0%, #4b1d72 35%, #6a2c91 70%, #9b51e0 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    /* ตกแต่งวงกลมสว่างเรืองแสงด้านหลัง */
+    .glow-circle-1 {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: rgba(187, 107, 217, 0.35);
+      filter: blur(90px);
+      border-radius: 50%;
+      top: 10%;
+      left: 10%;
+      z-index: 1;
+    }
 
-body{
-    font-family:'Prompt', sans-serif;
-    background: linear-gradient(135deg,#b1bca0,#d8d1c4);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
+    .glow-circle-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(106, 44, 145, 0.45);
+      filter: blur(100px);
+      border-radius: 50%;
+      bottom: 10%;
+      right: 10%;
+      z-index: 1;
+    }
 
-.card{
-    background:#ffffff;
-    max-width:600px;
-    width:100%;
-    padding:45px;
-    border-radius:25px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,0.12);
-    transition:0.3s ease;
-}
+    /* การ์ดหน้าปก Glassmorphism */
+    .profile-card {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 28px;
+      padding: 50px 40px;
+      max-width: 650px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1.2s ease-out;
+    }
 
-.card:hover{
-    transform:translateY(-5px);
-}
+    .welcome-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #f3e8ff;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
 
-h1{
-    color:#635467;
-    margin-bottom:20px;
-    font-size:2rem;
-}
+    .name-heading {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #e0aaff, #d8b4fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
 
-.name{
-    font-size:1.3rem;
-    font-weight:600;
-    color:#635467;
-    margin-bottom:15px;
-}
+    .study-box {
+      background: rgba(0, 0, 0, 0.2);
+      border-left: 4px solid #c084fc;
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin: 20px 0 25px;
+      text-align: left;
+    }
 
-p{
-    color:#555;
-    line-height:1.8;
-    font-size:1rem;
-}
+    .study-box p {
+      font-size: 0.95rem;
+      color: #d8b4fe;
+      margin-bottom: 5px;
+    }
 
-.tag{
-    display:inline-block;
-    margin-top:15px;
-    padding:10px 18px;
-    background:#ece8e1;
-    color:#635467;
-    border-radius:20px;
-    font-size:0.95rem;
-}
+    .study-box h4 {
+      font-size: 1.15rem;
+      color: #ffffff;
+      font-weight: 600;
+      line-height: 1.5;
+    }
 
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:12px 28px;
-    background:#635467;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    transition:0.3s;
-}
+    .github-note {
+      font-size: 0.95rem;
+      color: #e9d5ff;
+      margin-bottom: 35px;
+      opacity: 0.9;
+    }
 
-.btn:hover{
-    background:#504255;
-}
+    /* ปุ่มกดถัดไป */
+    .btn-next {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 42px;
+      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
-.footer{
-    margin-top:25px;
-    color:#888;
-    font-size:0.9rem;
-}
-</style>
+    .btn-next:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(168, 85, 247, 0.6);
+      background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);
+    }
+
+    .btn-next span {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-next:hover span {
+      transform: translateX(5px);
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .profile-card {
+        padding: 35px 25px;
+      }
+      .name-heading {
+        font-size: 2.1rem;
+      }
+      .welcome-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="card">
-    <h1>👋🏻 ยินดีต้อนรับสู่โปรไฟล์ของฉัน</h1>
+  <!-- แสงฟุ้งกระจายด้านหลัง -->
+  <div class="glow-circle-1"></div>
+  <div class="glow-circle-2"></div>
 
-    <div class="name">
-        ฉันชื่อ วารุณี ลิภูนนท์
+  <!-- การ์ดหน้าปกหลัก -->
+  <div class="profile-card">
+    <h2 class="welcome-title">Welcome to my profile ka!! ✨</h2>
+    <h1 class="name-heading">วารุณี ลิภูนนท์</h1>
+
+    <div class="study-box">
+      <p>กำลังศึกษาและสนใจด้าน:</p>
+      <h4>Gifted & Bachelor of Science in Radiological Technology ⚛️🩺</h4>
     </div>
 
-    <p>
-        กำลังศึกษาและสนใจด้าน
+    <p class="github-note">
+      นี่คือเว็บไซต์แรกของฉันที่โฮสต์บน GitHub Pages 🔮💕
     </p>
 
-    <div class="tag">
-        Gifted & Bachelor of Science in Radiological Technology
-    </div>
-
-    <p style="margin-top:20px;">
-        ✨ นี่คือเว็บไซต์แรกของฉันที่โฮสต์บน GitHub Pages
-    </p>
-
-    <a href="portfolio.html" class="btn">
-        📁 ดูแฟ้มสะสมงาน
+    <!-- ปุ่มเชื่อมต่อไปยังหน้าเนื้อหาหลัก -->
+    <a href="main.html" class="btn-next">
+      เข้าสู่เว็บไซต์ <span>➔</span>
     </a>
-
-    <div class="footer">
-        Thank you for visiting my website 💜
-    </div>
-</div>
+  </div>
 
 </body>
 </html>
-
