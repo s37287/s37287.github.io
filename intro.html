@@ -19,7 +19,7 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1d0736 0%, #341254 40%, #581c87 75%, #7e22ce 100%);
+      background: linear-gradient(135deg, #1f1227 0%, #3e264b 40%, #684279 75%, #A378B5 100%);
       color: #ffffff;
       padding: 40px 20px;
       position: relative;
@@ -29,12 +29,12 @@
       align-items: center;
     }
 
-    /* ดวงไฟเรืองแสงด้านหลัง */
+    /* ดวงไฟเรืองแสงด้านหลัง โทนม่วง #A378B5 และ ขาว */
     .glow-bg-1 {
       position: fixed;
       width: 450px;
       height: 450px;
-      background: rgba(168, 85, 247, 0.25);
+      background: rgba(163, 120, 181, 0.35);
       filter: blur(120px);
       border-radius: 50%;
       top: -50px;
@@ -46,7 +46,7 @@
       position: fixed;
       width: 400px;
       height: 400px;
-      background: rgba(126, 34, 206, 0.3);
+      background: rgba(255, 255, 255, 0.12);
       filter: blur(100px);
       border-radius: 50%;
       bottom: -50px;
@@ -71,20 +71,21 @@
     .header-tag {
       font-size: 0.9rem;
       padding: 6px 16px;
-      background: rgba(192, 132, 252, 0.2);
-      border: 1px solid rgba(192, 132, 252, 0.4);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 20px;
-      color: #d8b4fe;
+      color: #ffffff;
     }
 
     /* การ์ดกระจกฝ้า Glassmorphism */
     .intro-card {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 28px;
       padding: 50px 45px;
       backdrop-filter: blur(20px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(31, 18, 39, 0.4);
       position: relative;
       animation: fadeInUp 0.8s ease-out;
     }
@@ -95,22 +96,22 @@
       position: absolute;
       top: 20px;
       right: 35px;
-      opacity: 0.15;
-      color: #c084fc;
+      opacity: 0.2;
+      color: #ffffff;
       line-height: 1;
     }
 
     .page-title {
       font-size: 2.2rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #ffffff, #d8b4fe);
+      background: linear-gradient(90deg, #ffffff 0%, #f1e7f5 50%, #A378B5 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 30px;
       display: flex;
       align-items: center;
       gap: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       padding-bottom: 15px;
     }
 
@@ -118,7 +119,7 @@
     .intro-text {
       font-size: 1.1rem;
       line-height: 2;
-      color: #e9d5ff;
+      color: #ffffff;
       font-weight: 300;
       text-align: justify;
     }
@@ -137,14 +138,14 @@
     }
 
     .signature-box {
-      border-top: 1px dashed rgba(255, 255, 255, 0.25);
+      border-top: 1px dashed rgba(255, 255, 255, 0.3);
       padding-top: 15px;
       min-width: 180px;
     }
 
     .signature-title {
       font-size: 0.95rem;
-      color: #c084fc;
+      color: #f1e7f5;
       margin-bottom: 5px;
     }
 
@@ -165,9 +166,9 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 32px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 14px 36px;
+      background: #A378B5;
+      border: 1.5px solid #ffffff;
       border-radius: 50px;
       color: #ffffff;
       text-decoration: none;
@@ -175,15 +176,15 @@
       font-weight: 600;
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 20px rgba(163, 120, 181, 0.3);
     }
 
     .btn-back:hover {
-      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
-      border-color: #f3e8ff;
-      color: #ffffff;
+      background: #ffffff;
+      color: #533263;
+      border-color: #A378B5;
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
     }
 
     @keyframes fadeInUp {
@@ -254,7 +255,7 @@
     <!-- ปุ่มย้อนกลับด้านล่าง -->
     <div class="bottom-bar">
       <a href="main.html" class="btn-back">
-        <span>⬅</span> ย้อนกลับหน้าเมนูหลัก
+        <span>⬅</span> back
       </a>
     </div>
 
