@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>กิจกรรมจิตอาสา - Warunee Portfolio</title>
+  <title>กิจกรรมและจิตอาสา - Warunee Portfolio</title>
   <!-- Google Fonts: Kanit & Prompt -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,7 +95,7 @@
       background: linear-gradient(90deg, #ffffff 0%, #f1e7f5 50%, #A378B5 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -103,9 +103,13 @@
       padding-bottom: 15px;
     }
 
-    /* โซนแสดงรายละเอียดกิจกรรม */
-    .activity-details {
-      margin-bottom: 30px;
+    /* โซนแต่ละกิจกรรม */
+    .activity-item {
+      margin-bottom: 45px;
+    }
+
+    .activity-item:last-child {
+      margin-bottom: 10px;
     }
 
     .activity-title {
@@ -137,7 +141,7 @@
 
     /* กรอบใส่รูปภาพเกียรติบัตร */
     .cert-container {
-      margin-top: 25px;
+      margin-top: 20px;
       text-align: center;
     }
 
@@ -164,6 +168,13 @@
       height: auto;
       border-radius: 12px;
       display: block;
+    }
+
+    /* เส้นแบ่งระหว่างกิจกรรม */
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 35px 0;
     }
 
     /* โซนปุ่มย้อนกลับด้านล่างสุด */
@@ -236,18 +247,18 @@
     
     <!-- แถบด้านบน -->
     <div class="top-bar">
-      <span class="header-tag">VOLUNTEER ACTIVITIES</span>
+      <span class="header-tag">ACTIVITIES & VOLUNTEER</span>
     </div>
 
     <!-- การ์ดเนื้อหา -->
     <div class="content-card">
 
       <h1 class="page-title">
-        <span>🤝</span> กิจกรรมจิตอาสา
+        <span>🤝</span> กิจกรรมและจิตอาสา
       </h1>
 
-      <!-- รายละเอียดกิจกรรม -->
-      <div class="activity-details">
+      <!-- กิจกรรมที่ 1: นักเรียนจิตอาสา -->
+      <div class="activity-item">
         <div class="activity-title">
           <span>📜</span> เกียรติบัตรนักเรียนจิตอาสา
         </div>
@@ -255,13 +266,48 @@
           เป็นนักเรียนจิตอาสาในงานมหกรรมวิชาการ <strong>“ทักษะสร้างสุข วิชาการสร้างงาน เปิดบ้านสู่ EEC”</strong>
           <div class="activity-date">🏫 โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์” | ให้ไว้ ณ วันที่ 20 กุมภาพันธ์ 2568</div>
         </div>
+        <div class="cert-container">
+          <div class="cert-frame">
+            <img src="B591BE97-1DB6-45EC-926D-80C5A95A4C57.jpeg" alt="เกียรติบัตรนักเรียนจิตอาสา วารุณี ลิภูนนท์" class="cert-image">
+          </div>
+        </div>
       </div>
 
-      <!-- ส่วนแสดงรูปภาพเกียรติบัตร -->
-      <div class="cert-container">
-        <div class="cert-frame">
-          <!-- เปลี่ยน src เป็นชื่อไฟล์รูปภาพเกียรติบัตรของคุณ -->
-          <img src="B591BE97-1DB6-45EC-926D-80C5A95A4C57.jpeg" alt="เกียรติบัตรนักเรียนจิตอาสา วารุณี ลิภูนนท์" class="cert-image">
+      <div class="divider"></div>
+
+      <!-- กิจกรรมที่ 2: อบรมวัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต -->
+      <div class="activity-item">
+        <div class="activity-title">
+          <span>🧠</span> โครงการอบรมสุขภาพจิต
+        </div>
+        <div class="activity-info">
+          เข้าร่วมโครงการอบรม <strong>“วัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต”</strong>
+          <div class="activity-date">🏫 ประจำปีการศึกษา ๒๕๖๗</div>
+        </div>
+        <div class="cert-container">
+          <div class="cert-frame">
+            <!-- เปลี่ยน src เป็นชื่อไฟล์รูปเกียรติบัตร/รูปกิจกรรมนี้ -->
+            <img src="mental_health_cert.jpg" alt="โครงการอบรม วัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต" class="cert-image">
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- กิจกรรมที่ 3: อบรมค่ายพัฒนาคุณธรรม จริยธรรม -->
+      <div class="activity-item">
+        <div class="activity-title">
+          <span>🌸</span> ค่ายพัฒนาคุณธรรม จริยธรรม
+        </div>
+        <div class="activity-info">
+          เข้าร่วมอบรม <strong>ค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน</strong>
+          <div class="activity-date">🏫 ประจำปีการศึกษา ๒๕๖๗</div>
+        </div>
+        <div class="cert-container">
+          <div class="cert-frame">
+            <!-- เปลี่ยน src เป็นชื่อไฟล์รูปเกียรติบัตร/รูปกิจกรรมนี้ -->
+            <img src="ethics_camp_cert.jpg" alt="ค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน" class="cert-image">
+          </div>
         </div>
       </div>
 
