@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คำนำ - Warunee Portfolio</title>
+  <!-- Google Fonts: Kanit & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', 'Kanit', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1d0736 0%, #341254 40%, #581c87 75%, #7e22ce 100%);
+      color: #ffffff;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ดวงไฟเรืองแสงด้านหลัง */
+    .glow-bg-1 {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: rgba(168, 85, 247, 0.25);
+      filter: blur(120px);
+      border-radius: 50%;
+      top: -50px;
+      right: -50px;
+      pointer-events: none;
+    }
+
+    .glow-bg-2 {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: rgba(126, 34, 206, 0.3);
+      filter: blur(100px);
+      border-radius: 50%;
+      bottom: -50px;
+      left: -50px;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* แถบด้านบนแสดง Tag */
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .header-tag {
+      font-size: 0.9rem;
+      padding: 6px 16px;
+      background: rgba(192, 132, 252, 0.2);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      border-radius: 20px;
+      color: #d8b4fe;
+    }
+
+    /* การ์ดกระจกฝ้า Glassmorphism */
+    .intro-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      padding: 45px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      position: relative;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* สัญลักษณ์เครื่องหมายคำพูดด้านบน */
+    .quote-icon {
+      font-size: 4rem;
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      opacity: 0.15;
+      color: #c084fc;
+      line-height: 1;
+    }
+
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #d8b4fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* กล่องข้อความเนื้อหาคำนำ */
+    .intro-text {
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: #e9d5ff;
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    .intro-text p {
+      margin-bottom: 20px;
+      text-indent: 2.5em;
+    }
+
+    /* การ์ดไฮไลท์เป้าหมาย */
+    .highlight-box {
+      background: rgba(168, 85, 247, 0.15);
+      border-left: 4px solid #c084fc;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+
+    .highlight-box p {
+      text-indent: 0;
+      margin-bottom: 0;
+      font-weight: 400;
+      color: #f3e8ff;
+    }
+
+    /* ส่วนท้ายคำนำและลายเซ็น */
+    .signature-section {
+      margin-top: 30px;
+      display: flex;
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .signature-box {
+      border-top: 1px dashed rgba(255, 255, 255, 0.2);
+      padding-top: 15px;
+      display: inline-block;
+    }
+
+    .signature-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .signature-title {
+      font-size: 0.9rem;
+      color: #c084fc;
+    }
+
+    /* โซนปุ่มย้อนกลับด้านล่าง */
+    .bottom-bar {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-back:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+      border-color: #f3e8ff;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .intro-card {
+        padding: 30px 20px;
+      }
+      .page-title {
+        font-size: 1.7rem;
+      }
+      .intro-text {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- แสงฟุ้งกระจายด้านหลัง -->
+  <div class="glow-bg-1"></div>
+  <div class="glow-bg-2"></div>
+
+  <div class="container">
+    
+    <!-- แถบด้านบน -->
+    <div class="top-bar">
+      <span class="header-tag">PREFACE</span>
+    </div>
+
+    <!-- การ์ดคำนำ -->
+    <div class="intro-card">
+      <div class="quote-icon">“</div>
+
+      <h1 class="page-title">
+        <span>📝</span> คำนำ
+      </h1>
+
+      <div class="intro-text">
+        <p>
+          แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้ จัดทำขึ้นเพื่อนำเสนอประวัติ ความรู้ ความสามารถ ทักษะ ตลอดจนผลงานและกิจกรรมต่าง ๆ ของข้าพเจ้า **นางสาว วารุณี ลิภูนนท์** โดยมีเป้าหมายสำคัญในการสะท้อนตัวตน ความมุ่งมั่น และความตั้งใจจริงในการเข้าศึกษาต่อในระดับอุดมศึกษา
+        </p>
+
+        <div class="highlight-box">
+          <p>
+            ✨ *"การเรียนรู้ที่ไร้ขีดจำกัด ผสานกับความหลงใหลในวิทยาศาสตร์และเทคโนโลยี คือแรงขับเคลื่อนสำคัญที่ทำให้ข้าพเจ้าพร้อมพัฒนาตนเองอย่างต่อเนื่อง"*
+          </p>
+        </div>
+
+        <p>
+          เนื้อหาภายในเล่มประกอบด้วย ประวัติส่วนตัว ประวัติการศึกษา ผลงานทางวิชาการ กิจกรรมจิตอาสา และทักษะการแก้ปัญหาเฉพาะหน้า ซึ่งทุกประสบการณ์ที่ผ่านมาล้วนหล่อหลอมให้ข้าพเจ้ามีความพร้อมทั้งด้านวิชาการและทักษะการดำเนินชีวิต
+        </p>
+
+        <p>
+          ข้าพเจ้าขอขอบพระคุณคณะครูอาจารย์ ครอบครัว และเพื่อน ๆ ทุกท่าน ที่ได้ให้การสนับสนุน คำแนะนำ และกำลังใจที่ดีแก่ข้าพเจ้ามาโดยตลอด ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานฉบับนี้จะทำให้ทุกท่านได้เห็นถึงศักยภาพและความพร้อมของข้าพเจ้าอย่างชัดเจน
+        </p>
+      </div>
+
+      <!-- ลายเซ็นส่วนท้าย -->
+      <div class="signature-section">
+        <div class="signature-box">
+          <div class="signature-name">วารุณี ลิภูนนท์</div>
+          <div class="signature-title">ผู้จัดทำ</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ปุ่มย้อนกลับด้านล่าง -->
+    <div class="bottom-bar">
+      <a href="main.html" class="btn-back">
+        <span>⬅</span> back
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
