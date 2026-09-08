@@ -19,7 +19,7 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1d0736 0%, #341254 40%, #581c87 75%, #7e22ce 100%);
+      background: linear-gradient(135deg, #1f1227 0%, #3e264b 40%, #684279 75%, #A378B5 100%);
       color: #ffffff;
       padding: 40px 20px;
       position: relative;
@@ -29,12 +29,12 @@
       align-items: center;
     }
 
-    /* ดวงไฟเรืองแสงด้านหลัง */
+    /* ดวงไฟเรืองแสงด้านหลัง โทนม่วง #A378B5 และ ขาว */
     .glow-bg-1 {
       position: fixed;
       width: 450px;
       height: 450px;
-      background: rgba(168, 85, 247, 0.25);
+      background: rgba(163, 120, 181, 0.35);
       filter: blur(120px);
       border-radius: 50%;
       top: -50px;
@@ -46,7 +46,7 @@
       position: fixed;
       width: 400px;
       height: 400px;
-      background: rgba(126, 34, 206, 0.3);
+      background: rgba(255, 255, 255, 0.12);
       filter: blur(100px);
       border-radius: 50%;
       bottom: -50px;
@@ -73,26 +73,28 @@
       font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: 1px;
-      background: linear-gradient(90deg, #ffffff, #d8b4fe);
+      background: linear-gradient(90deg, #ffffff 0%, #f1e7f5 50%, #A378B5 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     /* การ์ดรวมเมนู Glassmorphism */
     .menu-card {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 28px;
       padding: 40px 30px;
       backdrop-filter: blur(20px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(31, 18, 39, 0.4);
       text-align: center;
+      animation: fadeInUp 0.8s ease-out;
     }
 
     .menu-title {
       font-size: 1.6rem;
       font-weight: 600;
-      color: #f3e8ff;
+      color: #ffffff;
       margin-bottom: 30px;
     }
 
@@ -105,7 +107,7 @@
 
     .nav-btn {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 20px 12px;
       border-radius: 20px;
       color: #ffffff;
@@ -126,11 +128,11 @@
     }
 
     .nav-btn:hover {
-      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
-      border-color: #f3e8ff;
+      background: #A378B5;
+      border-color: #ffffff;
       color: #ffffff;
       transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 10px 25px rgba(163, 120, 181, 0.5);
     }
 
     /* ส่วนปุ่มย้อนกลับด้านล่าง */
@@ -144,9 +146,9 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 32px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 14px 36px;
+      background: #A378B5;
+      border: 1.5px solid #ffffff;
       border-radius: 50px;
       color: #ffffff;
       text-decoration: none;
@@ -154,15 +156,26 @@
       font-weight: 600;
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 20px rgba(163, 120, 181, 0.3);
     }
 
     .btn-back:hover {
-      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
-      border-color: #f3e8ff;
-      color: #ffffff;
+      background: #ffffff;
+      color: #533263;
+      border-color: #A378B5;
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 768px) {
