@@ -105,7 +105,7 @@
     /* เลย์เอาต์ส่วนบน: รูป + ข้อมูลหลัก */
     .profile-header {
       display: flex;
-      gap: 30px;
+      gap: 25px;
       align-items: center;
       margin-bottom: 35px;
     }
@@ -115,17 +115,15 @@
       flex-shrink: 0;
     }
 
-    .avatar {
-      width: 130px;
-      height: 130px;
+    /* ปรับขนาดและสไตล์ของรูปโปรไฟล์ */
+    .avatar-img {
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #a855f7, #3b82f6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+      object-fit: cover;
       border: 3px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+      display: block;
     }
 
     .name-details h2 {
@@ -311,9 +309,10 @@
       </h1>
 
       <!-- ส่วนหัวโปรไฟล์ -->
-      <div class="avatar-wrapper">
-  <img src="profile.JPG" alt="รูปโปรไฟล์" class="avatar-img">
-</div>
+      <div class="profile-header">
+        <div class="avatar-wrapper">
+          <img src="profile.JPG" alt="รูปโปรไฟล์" class="avatar-img">
+        </div>
 
         <div class="name-details">
           <span class="nickname-badge">ชื่อเล่น : เนม</span>
