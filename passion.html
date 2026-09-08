@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ความสนใจในการศึกษาต่อ - Warunee Portfolio</title>
+  <!-- Google Fonts: Kanit & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', 'Kanit', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1d0736 0%, #341254 40%, #581c87 75%, #7e22ce 100%);
+      color: #ffffff;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ดวงไฟเรืองแสงด้านหลัง */
+    .glow-bg-1 {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: rgba(168, 85, 247, 0.25);
+      filter: blur(120px);
+      border-radius: 50%;
+      top: -50px;
+      right: -50px;
+      pointer-events: none;
+    }
+
+    .glow-bg-2 {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: rgba(126, 34, 206, 0.3);
+      filter: blur(100px);
+      border-radius: 50%;
+      bottom: -50px;
+      left: -50px;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* แถบด้านบนแสดง Tag */
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .header-tag {
+      font-size: 0.9rem;
+      padding: 6px 16px;
+      background: rgba(192, 132, 252, 0.2);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      border-radius: 20px;
+      color: #d8b4fe;
+    }
+
+    /* การ์ดกระจกฝ้า Glassmorphism */
+    .content-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      padding: 45px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #d8b4fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 15px;
+    }
+
+    /* โซนข้อความเนื้อหา */
+    .text-content {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #e9d5ff;
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    .text-content p {
+      margin-bottom: 20px;
+      text-indent: 2.5em;
+    }
+
+    .text-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* โซนปุ่มย้อนกลับด้านล่าง */
+    .bottom-bar {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-back:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+      border-color: #f3e8ff;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .content-card {
+        padding: 30px 20px;
+      }
+      .page-title {
+        font-size: 1.7rem;
+      }
+      .text-content {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- แสงฟุ้งกระจายด้านหลัง -->
+  <div class="glow-bg-1"></div>
+  <div class="glow-bg-2"></div>
+
+  <div class="container">
+    
+    <!-- แถบด้านบน -->
+    <div class="top-bar">
+      <span class="header-tag">EDUCATION INTEREST</span>
+    </div>
+
+    <!-- การ์ดเนื้อหา -->
+    <div class="content-card">
+
+      <h1 class="page-title">
+        <span>🎓</span> ความสนใจในการศึกษาต่อ
+      </h1>
+
+      <div class="text-content">
+        <p>
+          จุดเริ่มต้นของความสนใจในการศึกษาต่อของข้าพเจ้า เกิดจากการค้นหาว่าตนเองชอบและถนัดในด้านใด โดยข้าพเจ้าเป็นคนที่สนใจการทำงานในสายอาชีพทางการแพทย์และมีความตั้งใจอยากทำงานในโรงพยาบาลอยู่แล้ว จนได้รู้จักสาขารังสีเทคนิคผ่านช่องทาง TikTok ซึ่งมีทั้งนักศึกษาและผู้ที่ประกอบอาชีพด้านรังสีเทคนิคออกมาแบ่งปันประสบการณ์และแนะนำลักษณะการเรียนและการทำงาน ทำให้ข้าพเจ้าเริ่มสนใจและอยากศึกษาสาขานี้อย่างจริงจังมากขึ้น
+        </p>
+        <p>
+          สิ่งที่ทำให้ข้าพเจ้ารู้สึกว่าสาขานี้เหมาะกับตนเอง คือความตั้งใจที่จะเป็นส่วนหนึ่งในการช่วยเหลือผู้คน ข้าพเจ้าชื่นชมบุคลากรทางการแพทย์ที่มีความรู้ ความสามารถ และมีจิตใจพร้อมช่วยเหลือผู้ป่วยโดยไม่เลือกปฏิบัติ ไม่ว่าผู้ป่วยจะกำลังเผชิญกับปัญหาหรือความเจ็บป่วยในรูปแบบใด ข้าพเจ้าก็อยากเป็นหนึ่งในบุคลากรที่พร้อมช่วยเหลือและทำหน้าที่ของตนเองอย่างเต็มที่ แม้จะไม่ได้เป็นแพทย์ก็ตาม เมื่อได้ศึกษาลักษณะการทำงานของนักรังสีเทคนิค รวมถึงโอกาสในการประกอบอาชีพแล้ว ข้าพเจ้าจึงเกิดความมั่นใจและตั้งใจที่จะศึกษาต่อในสาขารังสีเทคนิค เพื่อพัฒนาความรู้และทักษะ และนำความสามารถของตนเองไปใช้เป็นส่วนหนึ่งในการดูแลและช่วยเหลือผู้ป่วยในอนาคต
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ปุ่มย้อนกลับด้านล่าง -->
+    <div class="bottom-bar">
+      <a href="main.html" class="btn-back">
+        <span>⬅</span> ย้อนกลับหน้าเมนูหลัก
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
