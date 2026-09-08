@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ประวัติการศึกษา - Warunee Portfolio</title>
+  <!-- Google Fonts: Kanit & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', 'Kanit', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1d0736 0%, #341254 40%, #581c87 75%, #7e22ce 100%);
+      color: #ffffff;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ดวงไฟเรืองแสงด้านหลัง */
+    .glow-bg-1 {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: rgba(168, 85, 247, 0.25);
+      filter: blur(120px);
+      border-radius: 50%;
+      top: -50px;
+      right: -50px;
+      pointer-events: none;
+    }
+
+    .glow-bg-2 {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: rgba(126, 34, 206, 0.3);
+      filter: blur(100px);
+      border-radius: 50%;
+      bottom: -50px;
+      left: -50px;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* แถบด้านบนแสดง Tag */
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .header-tag {
+      font-size: 0.9rem;
+      padding: 6px 16px;
+      background: rgba(192, 132, 252, 0.2);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      border-radius: 20px;
+      color: #d8b4fe;
+    }
+
+    /* การ์ดกระจกฝ้า Glassmorphism */
+    .edu-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      padding: 45px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #d8b4fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 15px;
+    }
+
+    /* เส้นไทม์ไลน์ (Timeline) */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    /* เส้นแนวตั้งเรืองแสง */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 15px;
+      bottom: 25px;
+      width: 3px;
+      background: linear-gradient(180deg, #c084fc 0%, #a855f7 50%, #3b82f6 100%);
+      border-radius: 3px;
+      box-shadow: 0 0 12px rgba(192, 132, 252, 0.6);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* จุดวงกลมบนเส้นไทม์ไลน์ */
+    .timeline-dot {
+      position: absolute;
+      left: -30px;
+      top: 18px;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background: #c084fc;
+      border: 4px solid #1d0736;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #c084fc;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background: #ffffff;
+      transform: translateX(-50%) scale(1.3);
+      box-shadow: 0 0 15px #ffffff;
+    }
+
+    /* กล่องข้อมูลระดับการศึกษา */
+    .timeline-content {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-content {
+      background: rgba(168, 85, 247, 0.15);
+      border-color: rgba(192, 132, 252, 0.5);
+      transform: translateX(8px);
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+    }
+
+    /* ไฮไลท์การ์ดระดับมัธยมปลาย (ระดับปัจจุบัน) */
+    .timeline-item.active .timeline-content {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(126, 34, 206, 0.35));
+      border: 1px solid rgba(216, 180, 254, 0.6);
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+    }
+
+    .timeline-item.active .timeline-dot {
+      background: #f3e8ff;
+      box-shadow: 0 0 15px #d8b4fe;
+    }
+
+    .edu-icon {
+      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      width: 55px;
+      height: 55px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .edu-info .level-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #c084fc;
+      background: rgba(192, 132, 252, 0.15);
+      padding: 3px 12px;
+      border-radius: 10px;
+      margin-bottom: 4px;
+    }
+
+    .edu-info .school-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .timeline-item.active .school-name {
+      color: #f3e8ff;
+    }
+
+    /* โซนปุ่มย้อนกลับด้านล่าง */
+    .bottom-bar {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-back:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+      border-color: #f3e8ff;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .edu-card {
+        padding: 30px 20px;
+      }
+      .page-title {
+        font-size: 1.7rem;
+      }
+      .timeline {
+        padding-left: 22px;
+      }
+      .timeline-dot {
+        left: -22px;
+      }
+      .timeline-content {
+        padding: 16px;
+        gap: 12px;
+      }
+      .edu-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+      }
+      .edu-info .school-name {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- แสงฟุ้งกระจายด้านหลัง -->
+  <div class="glow-bg-1"></div>
+  <div class="glow-bg-2"></div>
+
+  <div class="container">
+    
+    <!-- แถบด้านบน -->
+    <div class="top-bar">
+      <span class="header-tag">EDUCATION</span>
+    </div>
+
+    <!-- การ์ดประวัติการศึกษา -->
+    <div class="edu-card">
+
+      <h1 class="page-title">
+        <span>🎓</span> ประวัติการศึกษา
+      </h1>
+
+      <!-- เส้นไทม์ไลน์ -->
+      <div class="timeline">
+
+        <!-- 1. ระดับอนุบาล -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="edu-icon">🌱</div>
+            <div class="edu-info">
+              <span class="level-badge">ระดับอนุบาล</span>
+              <div class="school-name">โรงเรียนเขาคันทรง</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ประถมศึกษาตอนต้น -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="edu-icon">✏️</div>
+            <div class="edu-info">
+              <span class="level-badge">ระดับประถมศึกษาตอนต้น</span>
+              <div class="school-name">โรงเรียนบุญประทีปวิทยาคาร</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. ประถมศึกษาตอนปลาย -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="edu-icon">📚</div>
+            <div class="edu-info">
+              <span class="level-badge">ระดับประถมศึกษาตอนปลาย</span>
+              <div class="school-name">โรงเรียนบุญประทีปวิทยาคาร</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. มัธยมศึกษาตอนต้น -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="edu-icon">🏫</div>
+            <div class="edu-info">
+              <span class="level-badge">ระดับมัธยมศึกษาตอนต้น</span>
+              <div class="school-name">โรงเรียนบุญประทีปวิทยาคาร</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. มัธยมศึกษาตอนปลาย (ปัจจุบัน - ไฮไลท์พิเศษ) -->
+        <div class="timeline-item active">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-info">
+              <span class="level-badge">ระดับมัธยมศึกษาตอนปลาย (ปัจจุบัน)</span>
+              <div class="school-name">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ปุ่มย้อนกลับด้านล่าง -->
+    <div class="bottom-bar">
+      <a href="main.html" class="btn-back">
+        <span>⬅</span> back
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
