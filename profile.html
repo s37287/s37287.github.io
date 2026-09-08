@@ -1,121 +1,383 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ประวัติส่วนตัว</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ประวัติส่วนตัว - Warunee Portfolio</title>
+  <!-- Google Fonts: Kanit & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', 'Kanit', sans-serif;
+    }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1d0736 0%, #341254 40%, #581c87 75%, #7e22ce 100%);
+      color: #ffffff;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-body{
-    font-family:'Kanit',sans-serif;
-    background:#F6F3ED;
-    text-align:center;
-    padding:30px;
-}
+    /* ดวงไฟเรืองแสงด้านหลัง */
+    .glow-bg-1 {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: rgba(168, 85, 247, 0.25);
+      filter: blur(120px);
+      border-radius: 50%;
+      top: -50px;
+      right: -50px;
+      pointer-events: none;
+    }
 
-.container{
-    max-width:850px;
-    margin:auto;
-}
+    .glow-bg-2 {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: rgba(126, 34, 206, 0.3);
+      filter: blur(100px);
+      border-radius: 50%;
+      bottom: -50px;
+      left: -50px;
+      pointer-events: none;
+    }
 
-h1{
-    color:#7B6D8D;
-    font-size:2.5rem;
-    margin-bottom:25px;
-}
+    .container {
+      max-width: 850px;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
 
-.content{
-    background:#FFFFFF;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-    text-align:left;
-    border-left:8px solid #A9B89A;
-}
+    /* แถบด้านบนแสดง Tag */
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
 
-.content h2{
-    color:#7B6D8D;
-    margin-top:18px;
-    margin-bottom:8px;
-}
+    .header-tag {
+      font-size: 0.9rem;
+      padding: 6px 16px;
+      background: rgba(192, 132, 252, 0.2);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      border-radius: 20px;
+      color: #d8b4fe;
+    }
 
-.content h2:first-child{
-    margin-top:0;
-}
+    /* การ์ดกระจกฝ้า Glassmorphism */
+    .profile-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      padding: 45px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease-out;
+    }
 
-.content p{
-    color:#555;
-    line-height:1.8;
-}
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #d8b4fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 15px;
+    }
 
-.btn{
-    display:inline-block;
-    background:#A9B89A;
-    color:white;
-    padding:12px 25px;
-    text-decoration:none;
-    border-radius:40px;
-    margin-top:25px;
-}
+    /* เลย์เอาต์ส่วนบน: รูป + ข้อมูลหลัก */
+    .profile-header {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 35px;
+    }
 
-.btn:hover{
-    background:#8E9E7F;
-}
-</style>
+    .avatar-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a855f7, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .name-details h2 {
+      font-size: 1.8rem;
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .nickname-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #c084fc, #9333ea);
+      padding: 4px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    /* ตาราง Grid ข้อมูลส่วนตัว */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 35px;
+    }
+
+    .info-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .info-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(192, 132, 252, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .info-icon {
+      font-size: 1.4rem;
+      background: rgba(168, 85, 247, 0.2);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-text .label {
+      font-size: 0.82rem;
+      color: #c084fc;
+      margin-bottom: 2px;
+    }
+
+    .info-text .value {
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* โซนงานอดิเรก */
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #f3e8ff;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hobbies-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hobby-tag {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      color: #e9d5ff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .hobby-tag:hover {
+      background: rgba(168, 85, 247, 0.35);
+      color: #ffffff;
+      border-color: #d8b4fe;
+      transform: scale(1.05);
+    }
+
+    /* โซนปุ่มย้อนกลับด้านล่าง */
+    .bottom-bar {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-back:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+      border-color: #f3e8ff;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      .profile-card {
+        padding: 30px 20px;
+      }
+      .page-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <!-- แสงฟุ้งกระจายด้านหลัง -->
+  <div class="glow-bg-1"></div>
+  <div class="glow-bg-2"></div>
 
-    <h1>👤 ประวัติส่วนตัว</h1>
+  <div class="container">
+    
+    <!-- แถบด้านบน -->
+    <div class="top-bar">
+      <span class="header-tag">PERSONAL INFO</span>
+    </div>
 
-    <div class="content">
+    <!-- การ์ดประวัติส่วนตัว -->
+    <div class="profile-card">
 
-        <!-- ✏️ ใส่ข้อมูลส่วนตัวของคุณตรงนี้ -->
+      <h1 class="page-title">
+        <span>👤</span> ประวัติส่วนตัว
+      </h1>
 
-        <h2>ชื่อ - นามสกุล</h2>
-        <p>นางสาววารุณี ลิภูนนท์</p>
+      <!-- ส่วนหัวโปรไฟล์ -->
+      <div class="profile-header">
+        <div class="avatar-wrapper">
+          <div class="avatar">👩🏻</div>
+        </div>
+        <div class="name-details">
+          <span class="nickname-badge">ชื่อเล่น : เนม</span>
+          <h2>นางสาววารุณี ลิภูนนท์</h2>
+        </div>
+      </div>
 
-        <h2>ชื่อเล่น</h2>
-        <p>เนม</p>
+      <!-- ข้อมูลพื้นฐาน 2 คอลัมน์ -->
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-icon">🎂</div>
+          <div class="info-text">
+            <div class="label">วัน/เดือน/ปีเกิด</div>
+            <div class="value">3 ตุลาคม 2551</div>
+          </div>
+        </div>
 
-        <h2>วันเกิด</h2>
-        <p>3 ตุลาคม 2551</p>
+        <div class="info-item">
+          <div class="info-icon">🩸</div>
+          <div class="info-text">
+            <div class="label">หมู่เลือด</div>
+            <div class="value">-</div>
+          </div>
+        </div>
 
-        <h2>โรงเรียน</h2>
-        <p>บ้านบึงอุตสาหกรรมนุเคราะห์</p>
+        <div class="info-item">
+          <div class="info-icon">🇹🇭</div>
+          <div class="info-text">
+            <div class="label">เชื้อชาติ / สัญชาติ</div>
+            <div class="value">ไทย / ไทย</div>
+          </div>
+        </div>
 
-        <h2>ประวัติการศึกษ่า</h2>
-        <p>ระดับอนุบาล โรงเรียนเขาคันทรง
-           ระดับประถมศึกษาตอนต้น โรงเรียนบุญประทีปวิทยาคาร
-           ระดับประถมศึกษาตอนปลาย โรงเรียนบุญประทีปวิทยาคาร
-           ระดับมัธยมศึกษาตอนต้น โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์
-           ระดับมัธยมศึกษาตอนต้น โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์</p>
+        <div class="info-item">
+          <div class="info-icon">🙏</div>
+          <div class="info-text">
+            <div class="label">ศาสนา</div>
+            <div class="value">พุทธ</div>
+          </div>
+        </div>
+      </div>
 
-        <h2>ความสามารถ</h2>
-        <p>ใส่ความสามารถพิเศษของคุณ</p>
-
-        <h2>เป้าหมายในอนาคต</h2>
-        <p>ทำอาชีพนักรังสีการแพทย์</p>
-
-      
-        <a href="portfolio.html" class="btn">
-            👈🏻 กลับหน้า Portfolio
-        </a>
+      <!-- ส่วนงานอดิเรก -->
+      <h3 class="section-subtitle">
+        <span>🎨</span> งานอดิเรก (Hobbies)
+      </h3>
+      <div class="hobbies-wrapper">
+        <div class="hobby-tag">🎧 ฟังเพลง</div>
+        <div class="hobby-tag">📖 อ่านนิยาย</div>
+        <div class="hobby-tag">🌸 ค้นดูดอกไม้สวยงาม</div>
+        <div class="hobby-tag">🍄 ดูคนหาเก็บเห็ด</div>
+        <div class="hobby-tag">🌱 ดูการปลูกต้นไม้ต่าง ๆ</div>
+      </div>
 
     </div>
 
-</div>
+    <!-- ปุ่มย้อนกลับด้านล่าง -->
+    <div class="bottom-bar">
+      <a href="main.html" class="btn-back">
+        <span>⬅</span> back
+      </a>
+    </div>
+
+  </div>
 
 </body>
 </html>
-
