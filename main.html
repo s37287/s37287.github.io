@@ -55,7 +55,7 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 900px;
       width: 100%;
       position: relative;
       z-index: 10;
@@ -116,32 +116,33 @@
       margin-bottom: 30px;
     }
 
-    /* เมนูกดเลือกหน้า (Navigation Grid) */
+    /* เมนูกดเลือกหน้า (Grid 3 คอลัมน์) */
     .nav-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
     .nav-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 20px 15px;
+      padding: 20px 12px;
       border-radius: 20px;
       color: #ffffff;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .nav-btn .icon {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
 
     .nav-btn:hover {
@@ -152,7 +153,13 @@
       box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
       .nav-grid {
         grid-template-columns: 1fr;
       }
@@ -178,7 +185,7 @@
     <!-- แถบด้านบน -->
     <div class="top-bar">
       <a href="index.html" class="btn-back">
-        <span>⬅</span> back
+        <span>⬅</span> ย้อนกลับไปหน้าปก
       </a>
       <div class="header-title">WARUNEE PORTFOLIO</div>
     </div>
@@ -188,7 +195,6 @@
       <h2 class="menu-title">เลือกหน้าหัวข้อที่ต้องการเข้าดู ✨</h2>
 
       <div class="nav-grid">
-        <!-- เปลี่ยน href="ชื่อไฟล์.html" ตามชื่อไฟล์หน้าย่อยที่คุณจะสร้างได้เลย -->
         <a href="intro.html" class="nav-btn">
           <span class="icon">📝</span> คำนำ
         </a>
@@ -198,11 +204,20 @@
         <a href="education.html" class="nav-btn">
           <span class="icon">🎓</span> ประวัติการศึกษา
         </a>
+        <a href="skills.html" class="nav-btn">
+          <span class="icon">⚡</span> ความสามารถ
+        </a>
         <a href="passion.html" class="nav-btn">
           <span class="icon">💡</span> ความสนใจในการศึกษาต่อ
         </a>
         <a href="target.html" class="nav-btn">
-          <span class="icon">🏛️</span> คณะ สาขา และวิทยาลัยที่สนใจ
+          <span class="icon">🏛️</span> คณะ/สาขาที่สนใจ
+        </a>
+        <a href="volunteer.html" class="nav-btn">
+          <span class="icon">🤝</span> จิตอาสา
+        </a>
+        <a href="problem-solving.html" class="nav-btn">
+          <span class="icon">🧩</span> แก้ไขปัญหาเฉพาะหน้า
         </a>
         <a href="portfolio.html" class="nav-btn">
           <span class="icon">🏆</span> ผลงานและกิจกรรม
