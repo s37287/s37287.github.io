@@ -80,6 +80,41 @@
 
     /* การ์ดรวมเมนู Glassmorphism */
     .menu-card {
+      /* รูปโปรไฟล์ */
+.profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.profile img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+
+  /* กรอบวงกลม */
+  border: 5px solid #ffffff;
+
+  /* แสงเรืองรอบรูป */
+  box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(163, 120, 181, 0.8),
+    0 0 50px rgba(163, 120, 181, 0.5);
+
+  transition: all 0.3s ease;
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ไปวาง */
+.profile img:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 1),
+    0 0 40px rgba(163, 120, 181, 1),
+    0 0 60px rgba(163, 120, 181, 0.7);
+}
+
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 28px;
@@ -209,6 +244,10 @@
 
     <!-- การ์ดรวมปุ่มกดเมนู -->
     <div class="menu-card">
+        <!-- รูปโปรไฟล์ -->
+  <div class="profile">
+    <img src="waruni.jpg" alt="รูปโปรไฟล์ Waruni">
+  </div>
       <h2 class="menu-title">เลือกหน้าหัวข้อที่ต้องการเข้าดู ✨</h2>
 
       <div class="nav-grid">
