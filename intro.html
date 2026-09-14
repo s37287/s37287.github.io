@@ -10,206 +10,838 @@
   <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Prompt', 'Kanit', sans-serif;
+  /* =========================
+     RESET
+  ========================= */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', 'Kanit', sans-serif;
+  }
+
+
+  /* =========================
+     BACKGROUND
+  ========================= */
+
+  body {
+    min-height: 100vh;
+
+    padding: 40px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #ffffff;
+
+    position: relative;
+
+    overflow-x: hidden;
+
+    background:
+      radial-gradient(
+        circle at 12% 12%,
+        rgba(255, 255, 255, 0.48),
+        transparent 25%
+      ),
+
+      radial-gradient(
+        circle at 88% 85%,
+        rgba(238, 215, 255, 0.50),
+        transparent 30%
+      ),
+
+      linear-gradient(
+        135deg,
+        #d9c7e8 0%,
+        #c1a3d9 30%,
+        #a47bc0 65%,
+        #8c62a5 100%
+      );
+  }
+
+
+  /* =========================
+     BACKGROUND GLOW
+  ========================= */
+
+  .glow-bg-1 {
+    position: fixed;
+
+    width: 480px;
+    height: 480px;
+
+    top: -140px;
+    right: -120px;
+
+    background:
+      rgba(255, 255, 255, 0.38);
+
+    filter: blur(85px);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+      glowFloat 8s ease-in-out infinite;
+  }
+
+
+  .glow-bg-2 {
+    position: fixed;
+
+    width: 430px;
+    height: 430px;
+
+    bottom: -130px;
+    left: -100px;
+
+    background:
+      rgba(240, 218, 255, 0.48);
+
+    filter: blur(85px);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+      glowFloat 10s ease-in-out infinite reverse;
+  }
+
+
+  /* =========================
+     FLOATING DECORATION
+  ========================= */
+
+  body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 70px;
+    height: 70px;
+
+    top: 15%;
+    left: 7%;
+
+    border-radius: 50%;
+
+    background:
+      rgba(255, 255, 255, 0.13);
+
+    border:
+      1px solid rgba(255, 255, 255, 0.30);
+
+    backdrop-filter: blur(5px);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    animation:
+      bubbleFloat 6s ease-in-out infinite;
+  }
+
+
+  body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 35px;
+    height: 35px;
+
+    bottom: 17%;
+    right: 9%;
+
+    border-radius: 50%;
+
+    background:
+      rgba(255, 255, 255, 0.15);
+
+    border:
+      1px solid rgba(255, 255, 255, 0.30);
+
+    backdrop-filter: blur(5px);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    animation:
+      bubbleFloat 5s ease-in-out infinite reverse;
+  }
+
+
+  /* =========================
+     MAIN CONTAINER
+  ========================= */
+
+  .container {
+    max-width: 850px;
+
+    width: 100%;
+
+    position: relative;
+
+    z-index: 10;
+
+    animation:
+      pageAppear 0.9s cubic-bezier(.2,.8,.2,1);
+  }
+
+
+  /* =========================
+     TOP TAG
+  ========================= */
+
+  .top-bar {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: 16px;
+
+    padding-right: 5px;
+  }
+
+
+  .header-tag {
+    font-size: 0.82rem;
+
+    letter-spacing: 2px;
+
+    padding: 7px 17px;
+
+    color: #704887;
+
+    background:
+      rgba(255, 255, 255, 0.52);
+
+    border:
+      1px solid rgba(255, 255, 255, 0.70);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+      0 6px 18px rgba(90, 45, 115, 0.10);
+
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+  }
+
+
+  .header-tag:hover {
+    transform: translateY(-2px);
+
+    background:
+      rgba(255, 255, 255, 0.75);
+  }
+
+
+  /* =========================
+     INTRO CARD
+  ========================= */
+
+  .intro-card {
+    position: relative;
+
+    padding: 50px 50px 45px;
+
+    background:
+      rgba(255, 255, 255, 0.22);
+
+    border:
+      1px solid rgba(255, 255, 255, 0.55);
+
+    border-radius: 34px;
+
+    backdrop-filter: blur(28px);
+
+    -webkit-backdrop-filter: blur(28px);
+
+    box-shadow:
+      0 25px 70px rgba(75, 40, 95, 0.23),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.50);
+
+    overflow: hidden;
+
+    animation:
+      fadeInUp 0.9s ease-out;
+  }
+
+
+  /* แสงเส้นด้านบน Card */
+
+  .intro-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+
+    width: 76%;
+    height: 2px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.9),
+        transparent
+      );
+
+    border-radius: 50%;
+  }
+
+
+  /* แสงวงกลมใน Card */
+
+  .intro-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    left: -80px;
+
+    border-radius: 50%;
+
+    background:
+      rgba(255, 255, 255, 0.14);
+
+    filter: blur(5px);
+
+    pointer-events: none;
+  }
+
+
+  /* =========================
+     QUOTE
+  ========================= */
+
+  .quote-icon {
+    font-size: 5rem;
+
+    position: absolute;
+
+    top: 18px;
+    right: 38px;
+
+    opacity: 0.16;
+
+    color: #ffffff;
+
+    line-height: 1;
+
+    font-family: Georgia, serif;
+
+    pointer-events: none;
+  }
+
+
+  /* =========================
+     PAGE TITLE
+  ========================= */
+
+  .page-title {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 2.3rem;
+
+    font-weight: 700;
+
+    margin-bottom: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 16px;
+
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.30);
+
+    background:
+      linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #fff8ff 45%,
+        #ead1f7 100%
+      );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    filter:
+      drop-shadow(
+        0 4px 12px
+        rgba(91, 49, 116, 0.18)
+      );
+  }
+
+
+  /* ทำให้อิโมจิไม่โดน gradient */
+
+  .page-title span {
+    -webkit-text-fill-color: initial;
+
+    filter:
+      drop-shadow(
+        0 3px 6px
+        rgba(91, 49, 116, 0.18)
+      );
+  }
+
+
+  /* =========================
+     INTRO TEXT
+  ========================= */
+
+  .intro-text {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 1.08rem;
+
+    line-height: 2;
+
+    color: #ffffff;
+
+    font-weight: 300;
+
+    text-align: justify;
+
+    text-shadow:
+      0 1px 8px
+      rgba(80, 42, 100, 0.08);
+  }
+
+
+  .intro-text p {
+    margin-bottom: 25px;
+
+    text-indent: 2.5em;
+  }
+
+
+  /* =========================
+     SIGNATURE
+  ========================= */
+
+  .signature-section {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 42px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    text-align: center;
+  }
+
+
+  .signature-box {
+    min-width: 200px;
+
+    padding-top: 15px;
+
+    border-top:
+      1px dashed
+      rgba(255, 255, 255, 0.45);
+
+    position: relative;
+  }
+
+
+  .signature-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 45px;
+    height: 3px;
+
+    top: -2px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+      #e9c9f7;
+
+    border-radius: 20px;
+  }
+
+
+  .signature-title {
+    font-size: 0.92rem;
+
+    color: #f9efff;
+
+    margin-bottom: 5px;
+  }
+
+
+  .signature-name {
+    font-size: 1.15rem;
+
+    font-weight: 600;
+
+    color: #ffffff;
+
+    text-shadow:
+      0 3px 10px
+      rgba(80, 42, 100, 0.18);
+  }
+
+
+  /* =========================
+     BACK BUTTON
+  ========================= */
+
+  .bottom-bar {
+    margin-top: 30px;
+
+    display: flex;
+
+    justify-content: center;
+  }
+
+
+  .btn-back {
+    position: relative;
+
+    overflow: hidden;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 14px 38px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #c99ae3,
+        #a978c3
+      );
+
+    border:
+      1.5px solid
+      rgba(255, 255, 255, 0.9);
+
+    border-radius: 50px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    box-shadow:
+      0 10px 25px
+      rgba(91, 49, 116, 0.23),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.35);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease,
+      color 0.3s ease;
+  }
+
+
+  /* แสงวิ่งผ่านปุ่ม */
+
+  .btn-back::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.40),
+        transparent
+      );
+
+    transform: skewX(-20deg);
+
+    transition:
+      left 0.6s ease;
+  }
+
+
+  .btn-back:hover::before {
+    left: 130%;
+  }
+
+
+  .btn-back:hover {
+    transform:
+      translateY(-4px)
+      scale(1.03);
+
+    background:
+      linear-gradient(
+        135deg,
+        #ffffff,
+        #f4e6ff
+      );
+
+    color: #704887;
+
+    border-color:
+      #d2a9e7;
+
+    box-shadow:
+      0 15px 35px
+      rgba(90, 45, 115, 0.25);
+  }
+
+
+  .btn-back span {
+    position: relative;
+
+    z-index: 2;
+
+    transition:
+      transform 0.3s ease;
+  }
+
+
+  .btn-back:hover span {
+    transform:
+      translateX(-4px);
+  }
+
+
+  /* =========================
+     ANIMATIONS
+  ========================= */
+
+  @keyframes pageAppear {
+
+    from {
+      opacity: 0;
+
+      transform:
+        translateY(25px)
+        scale(0.98);
     }
+
+    to {
+      opacity: 1;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+  }
+
+
+  @keyframes fadeInUp {
+
+    from {
+      opacity: 0;
+
+      transform:
+        translateY(25px);
+    }
+
+    to {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+  }
+
+
+  @keyframes glowFloat {
+
+    0%, 100% {
+      transform:
+        translate(0, 0);
+    }
+
+    50% {
+      transform:
+        translate(18px, 15px);
+    }
+  }
+
+
+  @keyframes bubbleFloat {
+
+    0%, 100% {
+      transform:
+        translateY(0);
+    }
+
+    50% {
+      transform:
+        translateY(-15px);
+    }
+  }
+
+
+  /* =========================
+     MOBILE
+  ========================= */
+
+  @media (max-width: 600px) {
 
     body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1f1227 0%, #3e264b 40%, #684279 75%, #A378B5 100%);
-      color: #ffffff;
-      padding: 40px 20px;
-      position: relative;
-      overflow-x: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 25px 15px;
+
+      align-items: flex-start;
     }
 
-    /* ดวงไฟเรืองแสงด้านหลัง โทนม่วง #A378B5 และ ขาว */
-    .glow-bg-1 {
-      position: fixed;
-      width: 450px;
-      height: 450px;
-      background: rgba(163, 120, 181, 0.35);
-      filter: blur(120px);
-      border-radius: 50%;
-      top: -50px;
-      right: -50px;
-      pointer-events: none;
-    }
-
-    .glow-bg-2 {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: rgba(255, 255, 255, 0.12);
-      filter: blur(100px);
-      border-radius: 50%;
-      bottom: -50px;
-      left: -50px;
-      pointer-events: none;
-    }
 
     .container {
-      max-width: 850px;
-      width: 100%;
-      position: relative;
-      z-index: 10;
+      margin-top: 15px;
     }
 
-    /* แถบด้านบนแสดง Tag */
+
     .top-bar {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
+
 
     .header-tag {
-      font-size: 0.9rem;
-      padding: 6px 16px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
-      color: #ffffff;
+      font-size: 0.75rem;
+
+      padding: 6px 13px;
+
+      letter-spacing: 1.5px;
     }
 
-    /* การ์ดกระจกฝ้า Glassmorphism */
+
     .intro-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 35px 22px;
+
       border-radius: 28px;
-      padding: 50px 45px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 20px 50px rgba(31, 18, 39, 0.4);
-      position: relative;
-      animation: fadeInUp 0.8s ease-out;
     }
 
-    /* สัญลักษณ์เครื่องหมายคำพูดด้านบน */
+
     .quote-icon {
       font-size: 4rem;
-      position: absolute;
-      top: 20px;
-      right: 35px;
-      opacity: 0.2;
-      color: #ffffff;
-      line-height: 1;
+
+      right: 20px;
     }
+
 
     .page-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #ffffff 0%, #f1e7f5 50%, #A378B5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      padding-bottom: 15px;
+      font-size: 1.8rem;
+
+      margin-bottom: 25px;
+
+      gap: 9px;
     }
 
-    /* กล่องข้อความเนื้อหาคำนำ */
+
     .intro-text {
-      font-size: 1.1rem;
-      line-height: 2;
-      color: #ffffff;
-      font-weight: 300;
-      text-align: justify;
+      font-size: 1rem;
+
+      line-height: 1.9;
+
+      text-align: left;
     }
+
 
     .intro-text p {
-      margin-bottom: 25px;
-      text-indent: 2.5em;
+      text-indent: 2em;
+
+      margin-bottom: 22px;
     }
 
-    /* ส่วนผู้จัดทำ */
+
     .signature-section {
-      margin-top: 40px;
-      display: flex;
-      justify-content: flex-end;
-      text-align: center;
+      margin-top: 32px;
+
+      justify-content: center;
     }
+
 
     .signature-box {
-      border-top: 1px dashed rgba(255, 255, 255, 0.3);
-      padding-top: 15px;
       min-width: 180px;
     }
 
-    .signature-title {
-      font-size: 0.95rem;
-      color: #f1e7f5;
-      margin-bottom: 5px;
-    }
 
-    .signature-name {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #ffffff;
-    }
-
-    /* โซนปุ่มย้อนกลับด้านล่าง */
     .bottom-bar {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
+      margin-top: 22px;
     }
+
 
     .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 36px;
-      background: #A378B5;
-      border: 1.5px solid #ffffff;
-      border-radius: 50px;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(163, 120, 181, 0.3);
-    }
+      width: 100%;
 
-    .btn-back:hover {
-      background: #ffffff;
-      color: #533263;
-      border-color: #A378B5;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
+      max-width: 250px;
     }
+  }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    @media (max-width: 600px) {
-      .intro-card {
-        padding: 35px 20px;
-      }
-      .page-title {
-        font-size: 1.7rem;
-      }
-      .intro-text {
-        font-size: 1rem;
-      }
+  /* =========================
+     ลด Animation
+  ========================= */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+
+      animation-iteration-count: 1 !important;
+
+      transition-duration: 0.01ms !important;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
 
