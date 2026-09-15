@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>กิจกรรมและจิตอาสา - Warunee Portfolio</title>
-  <!-- Google Fonts: Kanit & Prompt -->
+  <title>ความสามารถพิเศษ - Warunee Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -19,8 +19,8 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1f1227 0%, #3e264b 40%, #684279 75%, #A378B5 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, #66536f 0%, #7b6884 50%, #927d99 100%);
+      color: #302938;
       padding: 40px 20px;
       position: relative;
       overflow-x: hidden;
@@ -29,29 +29,56 @@
       align-items: center;
     }
 
-    /* ดวงไฟเรืองแสงด้านหลัง โทนม่วง #A378B5 และ ขาว */
-    .glow-bg-1 {
+    /* =========================
+       ฟองสบู่ด้านหลัง
+       ========================= */
+
+    .bubble {
       position: fixed;
-      width: 450px;
-      height: 450px;
-      background: rgba(163, 120, 181, 0.35);
-      filter: blur(120px);
       border-radius: 50%;
-      top: -50px;
-      right: -50px;
       pointer-events: none;
+      z-index: 0;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow:
+        inset 4px 4px 10px rgba(255,255,255,0.12),
+        0 5px 18px rgba(70,50,80,0.08);
+      backdrop-filter: blur(2px);
     }
 
-    .glow-bg-2 {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: rgba(255, 255, 255, 0.12);
-      filter: blur(100px);
-      border-radius: 50%;
-      bottom: -50px;
-      left: -50px;
-      pointer-events: none;
+    .bubble-1 {
+      width: 55px;
+      height: 55px;
+      top: 8%;
+      left: 7%;
+    }
+
+    .bubble-2 {
+      width: 28px;
+      height: 28px;
+      top: 20%;
+      right: 10%;
+    }
+
+    .bubble-3 {
+      width: 42px;
+      height: 42px;
+      bottom: 15%;
+      left: 12%;
+    }
+
+    .bubble-4 {
+      width: 20px;
+      height: 20px;
+      bottom: 25%;
+      right: 8%;
+    }
+
+    .bubble-5 {
+      width: 32px;
+      height: 32px;
+      top: 65%;
+      right: 17%;
     }
 
     .container {
@@ -61,49 +88,61 @@
       z-index: 10;
     }
 
-    /* แถบด้านบนแสดง Tag */
+    /* =========================
+       แถบด้านบน
+       ========================= */
+
     .top-bar {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .header-tag {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       padding: 6px 16px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.32);
       border-radius: 20px;
-      color: #ffffff;
+      color: #fff;
+      letter-spacing: 0.5px;
     }
 
-    /* การ์ดกระจกฝ้า Glassmorphism */
+    /* =========================
+       การ์ดหลัก
+       ========================= */
+
     .content-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(250, 247, 251, 0.82);
+      border: 1px solid rgba(255,255,255,0.7);
       border-radius: 28px;
       padding: 45px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 20px 50px rgba(31, 18, 39, 0.4);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 18px 45px rgba(62, 48, 68, 0.25);
       animation: fadeInUp 0.8s ease-out;
     }
+
+    /* =========================
+       หัวข้อ
+       ========================= */
 
     .page-title {
       font-size: 2.2rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #ffffff 0%, #f1e7f5 50%, #A378B5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #45374b;
       margin-bottom: 35px;
       display: flex;
       align-items: center;
       gap: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 2px solid #c5b5ca;
       padding-bottom: 15px;
     }
 
-    /* โซนแต่ละกิจกรรม */
+    /* =========================
+       แต่ละกิจกรรม
+       ========================= */
+
     .activity-item {
       margin-bottom: 45px;
     }
@@ -115,8 +154,8 @@
     .activity-title {
       font-size: 1.3rem;
       font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 10px;
+      color: #45374b;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -124,24 +163,95 @@
 
     .activity-info {
       font-size: 1rem;
-      color: #f1e7f5;
-      line-height: 1.7;
-      font-weight: 300;
-      background: rgba(255, 255, 255, 0.05);
+      color: #403744;
+      line-height: 1.8;
+      font-weight: 400;
+      background: #eee8f0;
       padding: 18px 24px;
       border-radius: 16px;
-      border-left: 4px solid #A378B5;
+      border-left: 5px solid #80648a;
+    }
+
+    .activity-info strong {
+      color: #5e3f69;
+      font-weight: 600;
     }
 
     .activity-date {
       font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.8);
-      margin-top: 6px;
+      color: #65576a;
+      margin-top: 8px;
     }
 
-    /* กรอบใส่รูปภาพเกียรติบัตร */
-    .cert-container {
+    /* =========================
+       กราฟความสามารถ
+       ========================= */
+
+    .skill-chart {
       margin-top: 20px;
+      background: #e7dfe9;
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid #d2c4d5;
+    }
+
+    .skill {
+      margin-bottom: 25px;
+    }
+
+    .skill:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 9px;
+      font-size: 1rem;
+      color: #403744;
+      font-weight: 600;
+    }
+
+    .skill-percent {
+      color: #674b70;
+      font-weight: 700;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 14px;
+      background: #d0c3d3;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      border-radius: 20px;
+      background: #80648a;
+      animation: progress 1.2s ease-out;
+    }
+
+    .volunteer {
+      width: 70%;
+    }
+
+    .leader {
+      width: 50%;
+    }
+
+    @keyframes progress {
+      from {
+        width: 0;
+      }
+    }
+
+    /* =========================
+       รูปเกียรติบัตร
+       ========================= */
+
+    .cert-container {
+      margin-top: 22px;
       text-align: center;
     }
 
@@ -150,16 +260,16 @@
       position: relative;
       border-radius: 18px;
       padding: 10px;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+      background: #e5dce7;
+      border: 1px solid #cbbbcf;
+      box-shadow: 0 12px 30px rgba(65, 50, 70, 0.18);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       max-width: 100%;
     }
 
     .cert-frame:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(163, 120, 181, 0.3);
+      box-shadow: 0 18px 35px rgba(80, 60, 88, 0.25);
     }
 
     .cert-image {
@@ -170,14 +280,20 @@
       display: block;
     }
 
-    /* เส้นแบ่งระหว่างกิจกรรม */
+    /* =========================
+       เส้นแบ่ง
+       ========================= */
+
     .divider {
       height: 1px;
-      background: rgba(255, 255, 255, 0.15);
+      background: #cdbfd0;
       margin: 35px 0;
     }
 
-    /* โซนปุ่มย้อนกลับด้านล่างสุด */
+    /* =========================
+       ปุ่มย้อนกลับ
+       ========================= */
+
     .bottom-bar {
       margin-top: 35px;
       display: flex;
@@ -188,139 +304,222 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 36px;
-      background: #A378B5;
-      border: 1.5px solid #ffffff;
+      padding: 13px 34px;
+      background: #80648a;
+      border: 1.5px solid #80648a;
       border-radius: 50px;
       color: #ffffff;
       text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
-      backdrop-filter: blur(10px);
       transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(163, 120, 181, 0.3);
+      box-shadow: 0 7px 18px rgba(80, 60, 88, 0.2);
     }
 
     .btn-back:hover {
-      background: #ffffff;
-      color: #533263;
-      border-color: #A378B5;
+      background: #695173;
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
     }
+
+    /* =========================
+       Animation
+       ========================= */
 
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
+    /* =========================
+       มือถือ
+       ========================= */
+
     @media (max-width: 650px) {
+
+      body {
+        padding: 25px 15px;
+      }
+
       .content-card {
         padding: 30px 20px;
       }
+
       .page-title {
         font-size: 1.7rem;
       }
+
       .activity-title {
         font-size: 1.1rem;
       }
+
       .activity-info {
         font-size: 0.95rem;
         padding: 15px;
       }
+
+      .skill-chart {
+        padding: 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- แสงฟุ้งกระจายด้านหลัง -->
-  <div class="glow-bg-1"></div>
-  <div class="glow-bg-2"></div>
+  <!-- ฟองสบู่ตกแต่งด้านหลัง -->
+  <div class="bubble bubble-1"></div>
+  <div class="bubble bubble-2"></div>
+  <div class="bubble bubble-3"></div>
+  <div class="bubble bubble-4"></div>
+  <div class="bubble bubble-5"></div>
 
   <div class="container">
-    
-    <!-- แถบด้านบน -->
+
+    <!-- Tag -->
     <div class="top-bar">
-      <span class="header-tag">ACTIVITIES & VOLUNTEER</span>
+      <span class="header-tag">SPECIAL SKILLS</span>
     </div>
 
-    <!-- การ์ดเนื้อหา -->
+    <!-- การ์ดหลัก -->
     <div class="content-card">
 
       <h1 class="page-title">
-        <span>🤝</span> กิจกรรมและจิตอาสา
+        <span>✨</span> ความสามารถพิเศษ
       </h1>
 
-      <!-- กิจกรรมที่ 1: นักเรียนจิตอาสา -->
+
+      <!-- =========================
+           ความสามารถที่ 1
+           ========================= -->
+
       <div class="activity-item">
+
         <div class="activity-title">
-          <span>📜</span> เกียรติบัตรนักเรียนจิตอาสา
+          <span>🌟</span>
+          ความสามารถด้านจิตอาสาและความเป็นผู้นำ
         </div>
-        <div class="activity-info">
-          เป็นนักเรียนจิตอาสาในงานมหกรรมวิชาการ <strong>“ทักษะสร้างสุข วิชาการสร้างงาน เปิดบ้านสู่ EEC”</strong>
-          <div class="activity-date">🏫 โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์” | ให้ไว้ ณ วันที่ 20 กุมภาพันธ์ 2568</div>
-        </div>
-        <div class="cert-container">
-          <div class="cert-frame">
-            <img src="B591BE97-1DB6-45EC-926D-80C5A95A4C57.jpeg" alt="เกียรติบัตรนักเรียนจิตอาสา วารุณี ลิภูนนท์" class="cert-image">
+
+        <!-- กราฟ -->
+        <div class="skill-chart">
+
+          <div class="skill">
+
+            <div class="skill-label">
+              <span>🤝 จิตอาสา</span>
+              <span class="skill-percent">70%</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress volunteer"></div>
+            </div>
+
           </div>
+
+
+          <div class="skill">
+
+            <div class="skill-label">
+              <span>⭐ ความเป็นผู้นำ</span>
+              <span class="skill-percent">50%</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress leader"></div>
+            </div>
+
+          </div>
+
         </div>
+
+
+        <!-- รายละเอียด -->
+        <div class="activity-info">
+
+ เข้าร่วมกิจกรรมจิตอาสาในงานมหกรรมวิชาการของโรงเรียน มีส่วนร่วมในการช่วยเหลืองานส่วนรวมและทำงานร่วมกับผู้อื่น
+
+          <div class="activity-date">
+            🏫 โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์
+          </div>
+
+        </div>
+
+
+        <!-- เกียรติบัตร -->
+        <div class="cert-container">
+
+          <div class="cert-frame">
+
+            <img
+              src="B591BE97-1DB6-45EC-926D-80C5A95A4C57.jpeg"
+              alt="เกียรติบัตรกิจกรรมจิตอาสา"
+              class="cert-image">
+
+          </div>
+
+        </div>
+
       </div>
+
 
       <div class="divider"></div>
 
-      <!-- กิจกรรมที่ 2: อบรมวัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต -->
-      <div class="activity-item">
-        <div class="activity-title">
-          <span>🧠</span> โครงการอบรมสุขภาพจิต
-        </div>
-        <div class="activity-info">
-          เข้าร่วมโครงการอบรม <strong>“วัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต”</strong>
-          <div class="activity-date">🏫 ประจำปีการศึกษา ๒๕๖๗</div>
-        </div>
-        <div class="cert-container">
-          <div class="cert-frame">
-            <!-- เปลี่ยน src เป็นชื่อไฟล์รูปเกียรติบัตร/รูปกิจกรรมนี้ -->
-            <img src="7051892E-BD92-410A-BF08-8BAAF858852D.jpeg" alt="โครงการอบรม วัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต" class="cert-image">
-          </div>
-        </div>
-      </div>
 
-      <div class="divider"></div>
+      <!-- =========================
+           ความสามารถที่ 2
+           ========================= -->
 
-      <!-- กิจกรรมที่ 3: อบรมค่ายพัฒนาคุณธรรม จริยธรรม -->
       <div class="activity-item">
+
         <div class="activity-title">
-          <span>🌸</span> ค่ายพัฒนาคุณธรรม จริยธรรม
+          <span>🧠</span>
+          ด้านการเป็นผู้นำ
         </div>
+
+
+        <!-- รายละเอียด -->
         <div class="activity-info">
-          เข้าร่วมอบรม <strong>ค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน</strong>
-          <div class="activity-date">🏫 ประจำปีการศึกษา ๒๕๖๗</div>
+          <strongการประชาสัมพันธ์ถึงโทษของยาเสพติดในวันต่อต้านยาเสพติดิด"</strong>
+          ช่วยส่งเสริมความเข้าใจและการตระหนักเกี่ยวกับโทษของยาเสพติด สามารถนำความรู้และประสบการณ์ที่ถ่ายทอดไปปรับใช้ในการดูแลตนเองรวมถึงคนรอบข้างในชีวิตประจำวัน
         </div>
+
+
+        <!-- เกียรติบัตร -->
         <div class="cert-container">
+
           <div class="cert-frame">
-            <!-- เปลี่ยน src เป็นชื่อไฟล์รูปเกียรติบัตร/รูปกิจกรรมนี้ -->
-            <img src="643769EA-E802-4949-B903-5EC7D923D8D0.jpeg" alt="ค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน" class="cert-image">
+
+            <img
+              src="IMG_6895.JPG"
+              alt="รูปภาพกิจกรรมต่อต้านยาเสพติด"
+              class="cert-image">
+
           </div>
+
         </div>
+
       </div>
 
     </div>
 
-    <!-- ปุ่มย้อนกลับด้านล่างสุด -->
+
+    <!-- ปุ่มย้อนกลับ -->
     <div class="bottom-bar">
+
       <a href="main.html" class="btn-back">
         <span>⬅</span> back
       </a>
+
     </div>
 
   </div>
 
 </body>
 </html>
+
