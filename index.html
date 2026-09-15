@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Waruni's Profile</title>
+
   <!-- Google Fonts: Prompt & Kanit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
-  
+
   <style>
+
   * {
     margin: 0;
     padding: 0;
@@ -17,8 +19,9 @@
     font-family: 'Prompt', 'Kanit', sans-serif;
   }
 
+
   /* =========================
-     พื้นหลังหลัก
+     🔮 พื้นหลัง Witchy Purple
   ========================= */
 
   body {
@@ -33,33 +36,225 @@
     overflow: hidden;
     position: relative;
 
-    /* จากม่วงเข้ม → ม่วงลาเวนเดอร์ที่สว่างขึ้น */
     background:
       radial-gradient(
-        circle at 15% 15%,
-        rgba(255, 255, 255, 0.45),
-        transparent 25%
-      ),
-      radial-gradient(
-        circle at 85% 85%,
-        rgba(235, 210, 255, 0.45),
+        circle at 50% 45%,
+        rgba(155, 104, 181, 0.22),
         transparent 30%
       ),
+
+      radial-gradient(
+        circle at 10% 10%,
+        rgba(207, 164, 225, 0.18),
+        transparent 28%
+      ),
+
+      radial-gradient(
+        circle at 90% 90%,
+        rgba(126, 78, 151, 0.22),
+        transparent 30%
+      ),
+
       linear-gradient(
         135deg,
-        #d9c7e8 0%,
-        #c1a3d9 30%,
-        #a47bc0 65%,
-        #8c62a5 100%
+        #261a30 0%,
+        #392444 35%,
+        #51325f 65%,
+        #684475 100%
       );
   }
 
 
   /* =========================
-     แสงฟุ้งด้านหลัง
+     🌙 ดวงจันทร์ Witchy
+  ========================= */
+
+  body::before {
+    content: "☾";
+
+    position: absolute;
+
+    top: 5%;
+    right: 8%;
+
+    font-size: 95px;
+
+    color: rgba(239, 222, 246, 0.18);
+
+    text-shadow:
+      0 0 25px rgba(219, 184, 231, 0.25),
+      0 0 55px rgba(167, 112, 190, 0.18);
+
+    z-index: 2;
+
+    animation:
+      moonFloat 7s ease-in-out infinite;
+  }
+
+
+  /* =========================
+     ✦ ดาวเล็ก ๆ
+  ========================= */
+
+  body::after {
+    content: "✦   ·   ✧      ·      ✦";
+
+    position: absolute;
+
+    top: 17%;
+    left: 8%;
+
+    color: rgba(239, 222, 246, 0.55);
+
+    font-size: 17px;
+
+    letter-spacing: 12px;
+
+    z-index: 2;
+
+    animation:
+      starsTwinkle 4s ease-in-out infinite;
+  }
+
+
+  @keyframes moonFloat {
+
+    0%, 100% {
+      transform:
+        translateY(0)
+        rotate(-4deg);
+    }
+
+    50% {
+      transform:
+        translateY(-10px)
+        rotate(4deg);
+    }
+  }
+
+
+  @keyframes starsTwinkle {
+
+    0%, 100% {
+      opacity: 0.35;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+
+  /* =========================
+     🪻 อิโมจิตกแต่ง
+  ========================= */
+
+  .decoration {
+    position: absolute;
+
+    z-index: 3;
+
+    pointer-events: none;
+    user-select: none;
+
+    opacity: 0.68;
+
+    filter:
+      drop-shadow(
+        0 3px 10px rgba(30, 15, 38, 0.35)
+      );
+
+    animation:
+      floating 5s ease-in-out infinite;
+  }
+
+
+  .deco-1 {
+    top: 9%;
+    left: 7%;
+    font-size: 27px;
+    animation-delay: 0s;
+  }
+
+
+  .deco-2 {
+    top: 20%;
+    right: 6%;
+    font-size: 22px;
+    animation-delay: 1s;
+  }
+
+
+  .deco-3 {
+    top: 48%;
+    left: 4%;
+    font-size: 20px;
+    animation-delay: 2s;
+  }
+
+
+  .deco-4 {
+    top: 65%;
+    right: 5%;
+    font-size: 27px;
+    animation-delay: 0.5s;
+  }
+
+
+  .deco-5 {
+    bottom: 12%;
+    left: 10%;
+    font-size: 22px;
+    animation-delay: 1.5s;
+  }
+
+
+  .deco-6 {
+    bottom: 7%;
+    right: 10%;
+    font-size: 24px;
+    animation-delay: 2.5s;
+  }
+
+
+  .deco-7 {
+    top: 31%;
+    right: 18%;
+    font-size: 16px;
+    animation-delay: 3s;
+  }
+
+
+  .deco-8 {
+    bottom: 25%;
+    left: 18%;
+    font-size: 17px;
+    animation-delay: 1.8s;
+  }
+
+
+  @keyframes floating {
+
+    0%, 100% {
+      transform:
+        translateY(0)
+        rotate(-5deg);
+    }
+
+    50% {
+      transform:
+        translateY(-9px)
+        rotate(7deg);
+    }
+  }
+
+
+  /* =========================
+     🔮 แสงเวทมนตร์ด้านหลัง
   ========================= */
 
   .glow-circle-1 {
+
     position: absolute;
 
     width: 430px;
@@ -68,19 +263,22 @@
     top: -120px;
     left: -100px;
 
-    background: rgba(255, 255, 255, 0.35);
+    background:
+      rgba(177, 122, 198, 0.20);
 
-    filter: blur(80px);
+    filter: blur(95px);
 
     border-radius: 50%;
 
     z-index: 1;
 
-    animation: floatGlow 7s ease-in-out infinite;
+    animation:
+      floatGlow 8s ease-in-out infinite;
   }
 
 
   .glow-circle-2 {
+
     position: absolute;
 
     width: 480px;
@@ -89,401 +287,17 @@
     bottom: -170px;
     right: -120px;
 
-    background: rgba(240, 218, 255, 0.45);
+    background:
+      rgba(204, 161, 219, 0.18);
 
-    filter: blur(90px);
+    filter: blur(100px);
 
     border-radius: 50%;
 
     z-index: 1;
 
-    animation: floatGlow 9s ease-in-out infinite reverse;
-  }
-
-
-  /* =========================
-     วงกลมตกแต่ง
-  ========================= */
-
-  body::before,
-  body::after {
-    content: "";
-    position: absolute;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.12);
-
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    backdrop-filter: blur(5px);
-
-    z-index: 2;
-  }
-
-  body::before {
-    width: 75px;
-    height: 75px;
-
-    top: 12%;
-    right: 13%;
-
-    animation: bubbleFloat 6s ease-in-out infinite;
-  }
-
-  body::after {
-    width: 38px;
-    height: 38px;
-
-    bottom: 18%;
-    left: 15%;
-
-    animation: bubbleFloat 5s ease-in-out infinite reverse;
-  }
-
-
-  /* =========================
-     Profile Card
-  ========================= */
-
-  .profile-card {
-    position: relative;
-
-    z-index: 10;
-
-    width: 90%;
-    max-width: 680px;
-
-    padding: 55px 55px 50px;
-
-    text-align: center;
-
-    /* Glassmorphism ที่สว่างขึ้น */
-    background: rgba(255, 255, 255, 0.22);
-
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-
-    border: 1px solid rgba(255, 255, 255, 0.55);
-
-    border-radius: 35px;
-
-    box-shadow:
-      0 25px 70px rgba(75, 40, 95, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.45);
-
-    animation: fadeIn 1s cubic-bezier(.2, .8, .2, 1);
-  }
-
-
-  /* เส้นแสงด้านบน Card */
-
-  .profile-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 12%;
-
-    width: 76%;
-    height: 2px;
-
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.9),
-      transparent
-    );
-
-    border-radius: 50%;
-  }
-
-
-  /* =========================
-     Welcome
-  ========================= */
-
-  .welcome-title {
-    font-size: 1.65rem;
-
-    font-weight: 400;
-
-    color: #ffffff;
-
-    margin-bottom: 8px;
-
-    letter-spacing: 0.5px;
-
-    text-shadow:
-      0 3px 15px rgba(90, 45, 110, 0.25);
-
-    animation: textFade 1s ease;
-  }
-
-
-  /* =========================
-     ชื่อ
-  ========================= */
-
-  .name-heading {
-    font-size: clamp(2.2rem, 6vw, 3rem);
-
-    font-weight: 700;
-
-    margin-bottom: 25px;
-
-    background: linear-gradient(
-      90deg,
-      #ffffff 0%,
-      #fff8ff 45%,
-      #f1dcff 75%,
-      #e0baff 100%
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    filter:
-      drop-shadow(
-        0 5px 15px rgba(95, 50, 120, 0.25)
-      );
-  }
-
-
-  /* =========================
-     กล่องสาขาที่เรียน
-  ========================= */
-
-  .study-box {
-    position: relative;
-
-    padding: 20px 25px;
-
-    margin: 25px 0 25px;
-
-    text-align: left;
-
-    background: rgba(255, 255, 255, 0.16);
-
-    border: 1px solid rgba(255, 255, 255, 0.30);
-
-    border-left: 5px solid #f2d9ff;
-
-    border-radius: 18px;
-
-    box-shadow:
-      0 8px 25px rgba(80, 42, 100, 0.10),
-      inset 0 1px 0 rgba(255, 255, 255, 0.20);
-
-    transition:
-      transform 0.3s ease,
-      background 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-
-  .study-box:hover {
-    transform: translateY(-3px);
-
-    background: rgba(255, 255, 255, 0.23);
-
-    box-shadow:
-      0 12px 30px rgba(80, 42, 100, 0.16);
-  }
-
-
-  .study-box p {
-    font-size: 0.95rem;
-
-    color: #fff8ff;
-
-    margin-bottom: 6px;
-  }
-
-
-  .study-box h4 {
-    font-size: 1.1rem;
-
-    color: #ffffff;
-
-    font-weight: 600;
-
-    line-height: 1.6;
-  }
-
-
-  /* =========================
-     GitHub Note
-  ========================= */
-
-  .github-note {
-    font-size: 0.95rem;
-
-    line-height: 1.7;
-
-    color: #ffffff;
-
-    margin-bottom: 32px;
-
-    opacity: 0.95;
-  }
-
-
-  /* =========================
-     ปุ่ม
-  ========================= */
-
-  .btn-next {
-    position: relative;
-
-    overflow: hidden;
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
-
-    padding: 15px 40px;
-
-    background:
-      linear-gradient(
-        135deg,
-        #c99ae3,
-        #a978c3
-      );
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: 1.05rem;
-
-    font-weight: 600;
-
-    border-radius: 50px;
-
-    border: 1.5px solid rgba(255, 255, 255, 0.9);
-
-    box-shadow:
-      0 10px 25px rgba(91, 49, 116, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.35);
-
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease,
-      background 0.3s ease,
-      color 0.3s ease;
-  }
-
-
-  /* แสงวิ่งผ่านปุ่ม */
-
-  .btn-next::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 70%;
-    height: 100%;
-
-    background:
-      linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.40),
-        transparent
-      );
-
-    transform: skewX(-20deg);
-
-    transition: left 0.6s ease;
-  }
-
-
-  .btn-next:hover::before {
-    left: 130%;
-  }
-
-
-  .btn-next:hover {
-    transform:
-      translateY(-4px)
-      scale(1.03);
-
-    background:
-      linear-gradient(
-        135deg,
-        #ffffff,
-        #f4e6ff
-      );
-
-    color: #704887;
-
-    box-shadow:
-      0 15px 35px rgba(90, 45, 115, 0.30);
-  }
-
-
-  .btn-next span {
-    position: relative;
-
-    z-index: 2;
-
-    transition:
-      transform 0.3s ease;
-  }
-
-
-  .btn-next:hover span {
-    transform: translateX(5px);
-  }
-
-
-  /* =========================
-     Animation
-  ========================= */
-
-  @keyframes fadeIn {
-
-    from {
-      opacity: 0;
-
-      transform:
-        translateY(35px)
-        scale(0.96);
-    }
-
-    to {
-      opacity: 1;
-
-      transform:
-        translateY(0)
-        scale(1);
-    }
-  }
-
-
-  @keyframes textFade {
-
-    from {
-      opacity: 0;
-
-      transform:
-        translateY(10px);
-    }
-
-    to {
-      opacity: 1;
-
-      transform:
-        translateY(0);
-    }
+    animation:
+      floatGlow 10s ease-in-out infinite reverse;
   }
 
 
@@ -501,33 +315,514 @@
   }
 
 
-  @keyframes bubbleFloat {
+  /* =========================
+     🧙‍♀️ Profile Card
+  ========================= */
+
+  .profile-card {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 90%;
+    max-width: 680px;
+
+    padding: 55px 55px 50px;
+
+    text-align: center;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.12),
+        rgba(110, 67, 129, 0.13)
+      );
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    border:
+      1px solid rgba(230, 205, 239, 0.28);
+
+    border-radius: 35px;
+
+    box-shadow:
+
+      0 25px 70px
+      rgba(20, 10, 27, 0.48),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.14),
+
+      0 0 35px
+      rgba(153, 100, 174, 0.10);
+
+    animation:
+      fadeIn 1s cubic-bezier(.2, .8, .2, 1);
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     ✦ เส้นเวทมนตร์บน Card
+  ========================= */
+
+  .profile-card > :first-child::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: -4px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #ddc2e7;
+
+    font-size: 14px;
+
+    text-shadow:
+      0 0 12px #d5aee3;
+  }
+
+
+  /* 🌸 มุมดอกไม้ */
+
+  .profile-card::before {
+
+    content: "🪻";
+
+    position: absolute;
+
+    top: 17px;
+    right: 24px;
+
+    font-size: 24px;
+
+    opacity: 0.52;
+
+    animation:
+      flowerFloat 4s ease-in-out infinite;
+  }
+
+
+  .profile-card::after {
+
+    content: "🌸";
+
+    position: absolute;
+
+    bottom: 17px;
+    left: 24px;
+
+    font-size: 21px;
+
+    opacity: 0.45;
+
+    animation:
+      flowerFloat 4.5s ease-in-out infinite;
+  }
+
+
+  @keyframes flowerFloat {
 
     0%, 100% {
       transform:
-        translateY(0);
+        translateY(0)
+        rotate(-5deg);
     }
 
     50% {
       transform:
-        translateY(-15px);
+        translateY(-6px)
+        rotate(6deg);
     }
   }
 
 
   /* =========================
-     Mobile
+     ✨ Welcome
+  ========================= */
+
+  .welcome-title {
+
+    font-size: 1.65rem;
+
+    font-weight: 400;
+
+    color: #f5eaf8;
+
+    margin-bottom: 8px;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+      0 3px 15px
+      rgba(21, 9, 27, 0.55);
+
+    animation:
+      textFade 1s ease;
+  }
+
+
+  /* =========================
+     💜 ชื่อ
+  ========================= */
+
+  .name-heading {
+
+    font-size:
+      clamp(2.2rem, 6vw, 3rem);
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+
+    background:
+      linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #f2e4f6 40%,
+        #d9b5e5 70%,
+        #b985ca 100%
+      );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+      drop-shadow(
+        0 5px 15px
+        rgba(29, 12, 37, 0.45)
+      );
+  }
+
+
+  /* =========================
+     🔮 กล่องสาขาที่เรียน
+  ========================= */
+
+  .study-box {
+
+    position: relative;
+
+    padding: 20px 25px;
+
+    margin: 25px 0 25px;
+
+    text-align: left;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(190, 143, 207, 0.14),
+        rgba(255, 255, 255, 0.055)
+      );
+
+    border:
+      1px solid
+      rgba(231, 207, 239, 0.20);
+
+    border-left:
+      5px solid #b986ca;
+
+    border-radius: 18px;
+
+    box-shadow:
+
+      0 8px 25px
+      rgba(20, 10, 27, 0.25),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.08);
+
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+
+  /* ดาวเล็กในกล่อง */
+
+  .study-box::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    right: 17px;
+    top: 10px;
+
+    color:
+      rgba(225, 196, 235, 0.45);
+
+    font-size: 16px;
+
+    text-shadow:
+      0 0 10px
+      rgba(215, 174, 228, 0.5);
+  }
+
+
+  .study-box:hover {
+
+    transform:
+      translateY(-4px);
+
+    background:
+      rgba(184, 135, 203, 0.18);
+
+    box-shadow:
+
+      0 12px 30px
+      rgba(22, 10, 28, 0.35),
+
+      0 0 20px
+      rgba(161, 107, 180, 0.12);
+  }
+
+
+  .study-box p {
+
+    font-size: 0.95rem;
+
+    color: #e9d8ee;
+
+    margin-bottom: 6px;
+  }
+
+
+  .study-box h4 {
+
+    font-size: 1.1rem;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+  }
+
+
+  /* =========================
+     🔮 GitHub Note
+  ========================= */
+
+  .github-note {
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+
+    color: #eadced;
+
+    margin-bottom: 32px;
+
+    opacity: 0.95;
+  }
+
+
+  /* =========================
+     🪄 ปุ่มเวทมนตร์
+  ========================= */
+
+  .btn-next {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 15px 40px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #9c6daf,
+        #74477f
+      );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
+    border-radius: 50px;
+
+    border:
+      1.5px solid
+      rgba(236, 217, 243, 0.70);
+
+    box-shadow:
+
+      0 10px 25px
+      rgba(18, 8, 24, 0.38),
+
+      0 0 18px
+      rgba(157, 101, 177, 0.16),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.20);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease,
+      color 0.3s ease;
+  }
+
+
+  /* แสงเวทมนตร์วิ่งผ่านปุ่ม */
+
+  .btn-next::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(245, 227, 250, 0.35),
+        transparent
+      );
+
+    transform:
+      skewX(-20deg);
+
+    transition:
+      left 0.6s ease;
+  }
+
+
+  .btn-next:hover::before {
+    left: 130%;
+  }
+
+
+  .btn-next:hover {
+
+    transform:
+      translateY(-4px)
+      scale(1.03);
+
+    background:
+      linear-gradient(
+        135deg,
+        #e5c9ed,
+        #c89ad6
+      );
+
+    color: #51315d;
+
+    box-shadow:
+
+      0 15px 35px
+      rgba(18, 8, 24, 0.40),
+
+      0 0 25px
+      rgba(196, 151, 211, 0.25);
+  }
+
+
+  .btn-next span {
+
+    position: relative;
+
+    z-index: 2;
+
+    transition:
+      transform 0.3s ease;
+  }
+
+
+  .btn-next:hover span {
+    transform:
+      translateX(5px);
+  }
+
+
+  /* =========================
+     Animation
+  ========================= */
+
+  @keyframes fadeIn {
+
+    from {
+
+      opacity: 0;
+
+      transform:
+        translateY(35px)
+        scale(0.96);
+    }
+
+    to {
+
+      opacity: 1;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+  }
+
+
+  @keyframes textFade {
+
+    from {
+
+      opacity: 0;
+
+      transform:
+        translateY(10px);
+    }
+
+    to {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+  }
+
+
+  /* =========================
+     📱 Mobile
   ========================= */
 
   @media (max-width: 600px) {
 
     body {
+
       padding: 25px 0;
 
       overflow-y: auto;
     }
 
+
     .profile-card {
+
       width: 90%;
 
       padding: 40px 25px;
@@ -535,37 +830,101 @@
       border-radius: 28px;
     }
 
+
     .welcome-title {
+
       font-size: 1.3rem;
     }
 
+
     .name-heading {
+
       font-size: 2.1rem;
 
       line-height: 1.3;
     }
 
+
     .study-box {
+
       padding: 17px 18px;
     }
 
+
     .study-box h4 {
+
       font-size: 1rem;
     }
 
+
     .github-note {
+
       font-size: 0.9rem;
     }
 
+
     .btn-next {
+
       width: 100%;
 
       padding: 15px 25px;
     }
+
+
+    body::before {
+
+      font-size: 65px;
+
+      top: 4%;
+      right: 4%;
+    }
+
+
+    body::after {
+
+      left: 5%;
+
+      font-size: 13px;
+
+      letter-spacing: 7px;
+    }
+
+
+    .deco-1 {
+      left: 2%;
+    }
+
+
+    .deco-2 {
+      right: 2%;
+    }
+
+
+    .deco-3 {
+      left: 1%;
+    }
+
+
+    .deco-4 {
+      right: 1%;
+    }
+
   }
-</style>
+
+  </style>
 </head>
+
 <body>
+
+  <!-- 🌸 อิโมจิตกแต่ง -->
+  <div class="decoration deco-1">🪻</div>
+  <div class="decoration deco-2">🌷</div>
+  <div class="decoration deco-3">🌸</div>
+  <div class="decoration deco-4">🦋</div>
+  <div class="decoration deco-5">💜</div>
+  <div class="decoration deco-6">🌷</div>
+  <div class="decoration deco-7">✨</div>
+  <div class="decoration deco-8">✿</div>
 
   <!-- แสงฟุ้งกระจายด้านหลัง -->
   <div class="glow-circle-1"></div>
@@ -573,12 +932,25 @@
 
   <!-- การ์ดหน้าปกหลัก -->
   <div class="profile-card">
-    <h2 class="welcome-title">Welcome to my profile ka!! ✨</h2>
-    <h1 class="name-heading">ดิฉัน วารุณี ลิภูนนท์</h1>
+
+    <h2 class="welcome-title">
+      Welcome to my profile ka!! ✨
+    </h2>
+
+    <h1 class="name-heading">
+      ดิฉัน วารุณี ลิภูนนท์
+    </h1>
 
     <div class="study-box">
-      <p>กำลังศึกษาและสนใจด้าน:</p>
-      <h4>Gifted & Bachelor of Science in Radiological Technology ⚛️🩻</h4>
+
+      <p>
+        กำลังศึกษาและสนใจด้าน:
+      </p>
+
+      <h4>
+        Gifted & Bachelor of Science in Radiological Technology ⚛️🩻
+      </h4>
+
     </div>
 
     <p class="github-note">
@@ -587,8 +959,13 @@
 
     <!-- ปุ่มเชื่อมต่อไปยังหน้าเนื้อหาหลัก -->
     <a href="main.html" class="btn-next">
-      <span>go to next page➔</span>
+
+      <span>
+        go to next page➔
+      </span>
+
     </a>
+
   </div>
 
 </body>
