@@ -3,892 +3,1058 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>คำนำ - Waruni Portfolio</title>
-  <!-- Google Fonts: Kanit & Prompt -->
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-  /* =========================
-     RESET
-  ========================= */
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Prompt', 'Kanit', sans-serif;
-  }
-
-
-  /* =========================
-     BACKGROUND
-  ========================= */
-
-  body {
-    min-height: 100vh;
-
-    padding: 40px 20px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: #ffffff;
-
-    position: relative;
-
-    overflow-x: hidden;
-
-    background:
-      radial-gradient(
-        circle at 12% 12%,
-        rgba(255, 255, 255, 0.48),
-        transparent 25%
-      ),
-
-      radial-gradient(
-        circle at 88% 85%,
-        rgba(238, 215, 255, 0.50),
-        transparent 30%
-      ),
-
-      linear-gradient(
-        135deg,
-        #d9c7e8 0%,
-        #c1a3d9 30%,
-        #a47bc0 65%,
-        #8c62a5 100%
-      );
-  }
-
-
-  /* =========================
-     BACKGROUND GLOW
-  ========================= */
-
-  .glow-bg-1 {
-    position: fixed;
-
-    width: 480px;
-    height: 480px;
-
-    top: -140px;
-    right: -120px;
-
-    background:
-      rgba(255, 255, 255, 0.38);
-
-    filter: blur(85px);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: 1;
-
-    animation:
-      glowFloat 8s ease-in-out infinite;
-  }
-
-
-  .glow-bg-2 {
-    position: fixed;
-
-    width: 430px;
-    height: 430px;
-
-    bottom: -130px;
-    left: -100px;
-
-    background:
-      rgba(240, 218, 255, 0.48);
-
-    filter: blur(85px);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: 1;
-
-    animation:
-      glowFloat 10s ease-in-out infinite reverse;
-  }
-
-
-  /* =========================
-     FLOATING DECORATION
-  ========================= */
-
-  body::before {
-    content: "";
-
-    position: fixed;
-
-    width: 70px;
-    height: 70px;
-
-    top: 15%;
-    left: 7%;
-
-    border-radius: 50%;
-
-    background:
-      rgba(255, 255, 255, 0.13);
-
-    border:
-      1px solid rgba(255, 255, 255, 0.30);
-
-    backdrop-filter: blur(5px);
-
-    pointer-events: none;
-
-    z-index: 2;
-
-    animation:
-      bubbleFloat 6s ease-in-out infinite;
-  }
-
-
-  body::after {
-    content: "";
-
-    position: fixed;
-
-    width: 35px;
-    height: 35px;
-
-    bottom: 17%;
-    right: 9%;
-
-    border-radius: 50%;
-
-    background:
-      rgba(255, 255, 255, 0.15);
-
-    border:
-      1px solid rgba(255, 255, 255, 0.30);
-
-    backdrop-filter: blur(5px);
-
-    pointer-events: none;
-
-    z-index: 2;
-
-    animation:
-      bubbleFloat 5s ease-in-out infinite reverse;
-  }
-
-
-  /* =========================
-     MAIN CONTAINER
-  ========================= */
-
-  .container {
-    max-width: 850px;
-
-    width: 100%;
-
-    position: relative;
-
-    z-index: 10;
-
-    animation:
-      pageAppear 0.9s cubic-bezier(.2,.8,.2,1);
-  }
-
-
-  /* =========================
-     TOP TAG
-  ========================= */
-
-  .top-bar {
-    display: flex;
-
-    justify-content: flex-end;
-
-    margin-bottom: 16px;
-
-    padding-right: 5px;
-  }
-
-
-  .header-tag {
-    font-size: 0.82rem;
-
-    letter-spacing: 2px;
-
-    padding: 7px 17px;
-
-    color: #704887;
-
-    background:
-      rgba(255, 255, 255, 0.52);
-
-    border:
-      1px solid rgba(255, 255, 255, 0.70);
-
-    border-radius: 30px;
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-      0 6px 18px rgba(90, 45, 115, 0.10);
-
-    transition:
-      transform 0.3s ease,
-      background 0.3s ease;
-  }
-
-
-  .header-tag:hover {
-    transform: translateY(-2px);
-
-    background:
-      rgba(255, 255, 255, 0.75);
-  }
-
-
-  /* =========================
-     INTRO CARD
-  ========================= */
-
-  .intro-card {
-    position: relative;
-
-    padding: 50px 50px 45px;
-
-    background:
-      rgba(255, 255, 255, 0.22);
-
-    border:
-      1px solid rgba(255, 255, 255, 0.55);
-
-    border-radius: 34px;
-
-    backdrop-filter: blur(28px);
-
-    -webkit-backdrop-filter: blur(28px);
-
-    box-shadow:
-      0 25px 70px rgba(75, 40, 95, 0.23),
-
-      inset 0 1px 0
-      rgba(255, 255, 255, 0.50);
-
-    overflow: hidden;
-
-    animation:
-      fadeInUp 0.9s ease-out;
-  }
-
-
-  /* แสงเส้นด้านบน Card */
-
-  .intro-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 12%;
-
-    width: 76%;
-    height: 2px;
-
-    background:
-      linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.9),
-        transparent
-      );
-
-    border-radius: 50%;
-  }
-
-
-  /* แสงวงกลมใน Card */
-
-  .intro-card::after {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    top: -100px;
-    left: -80px;
-
-    border-radius: 50%;
-
-    background:
-      rgba(255, 255, 255, 0.14);
-
-    filter: blur(5px);
-
-    pointer-events: none;
-  }
-
-
-  /* =========================
-     QUOTE
-  ========================= */
-
-  .quote-icon {
-    font-size: 5rem;
-
-    position: absolute;
-
-    top: 18px;
-    right: 38px;
-
-    opacity: 0.16;
-
-    color: #ffffff;
-
-    line-height: 1;
-
-    font-family: Georgia, serif;
-
-    pointer-events: none;
-  }
-
-
-  /* =========================
-     PAGE TITLE
-  ========================= */
-
-  .page-title {
-    position: relative;
-
-    z-index: 2;
-
-    font-size: 2.3rem;
-
-    font-weight: 700;
-
-    margin-bottom: 30px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding-bottom: 16px;
-
-    border-bottom:
-      1px solid rgba(255, 255, 255, 0.30);
-
-    background:
-      linear-gradient(
-        90deg,
-        #ffffff 0%,
-        #fff8ff 45%,
-        #ead1f7 100%
-      );
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-    filter:
-      drop-shadow(
-        0 4px 12px
-        rgba(91, 49, 116, 0.18)
-      );
-  }
-
-
-  /* ทำให้อิโมจิไม่โดน gradient */
-
-  .page-title span {
-    -webkit-text-fill-color: initial;
-
-    filter:
-      drop-shadow(
-        0 3px 6px
-        rgba(91, 49, 116, 0.18)
-      );
-  }
-
-
-  /* =========================
-     INTRO TEXT
-  ========================= */
-
-  .intro-text {
-    position: relative;
-
-    z-index: 2;
-
-    font-size: 1.08rem;
-
-    line-height: 2;
-
-    color: #ffffff;
-
-    font-weight: 300;
-
-    text-align: justify;
-
-    text-shadow:
-      0 1px 8px
-      rgba(80, 42, 100, 0.08);
-  }
-
-
-  .intro-text p {
-    margin-bottom: 25px;
-
-    text-indent: 2.5em;
-  }
-
-
-  /* =========================
-     SIGNATURE
-  ========================= */
-
-  .signature-section {
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: 42px;
-
-    display: flex;
-
-    justify-content: flex-end;
-
-    text-align: center;
-  }
-
-
-  .signature-box {
-    min-width: 200px;
-
-    padding-top: 15px;
-
-    border-top:
-      1px dashed
-      rgba(255, 255, 255, 0.45);
-
-    position: relative;
-  }
-
-
-  .signature-box::before {
-    content: "";
-
-    position: absolute;
-
-    width: 45px;
-    height: 3px;
-
-    top: -2px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background:
-      #e9c9f7;
-
-    border-radius: 20px;
-  }
-
-
-  .signature-title {
-    font-size: 0.92rem;
-
-    color: #f9efff;
-
-    margin-bottom: 5px;
-  }
-
-
-  .signature-name {
-    font-size: 1.15rem;
-
-    font-weight: 600;
-
-    color: #ffffff;
-
-    text-shadow:
-      0 3px 10px
-      rgba(80, 42, 100, 0.18);
-  }
-
-
-  /* =========================
-     BACK BUTTON
-  ========================= */
-
-  .bottom-bar {
-    margin-top: 30px;
-
-    display: flex;
-
-    justify-content: center;
-  }
-
-
-  .btn-back {
-    position: relative;
-
-    overflow: hidden;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    padding: 14px 38px;
-
-    background:
-      linear-gradient(
-        135deg,
-        #c99ae3,
-        #a978c3
-      );
-
-    border:
-      1.5px solid
-      rgba(255, 255, 255, 0.9);
-
-    border-radius: 50px;
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: 1rem;
-
-    font-weight: 600;
-
-    box-shadow:
-      0 10px 25px
-      rgba(91, 49, 116, 0.23),
-
-      inset 0 1px 0
-      rgba(255, 255, 255, 0.35);
-
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease,
-      background 0.3s ease,
-      color 0.3s ease;
-  }
-
-
-  /* แสงวิ่งผ่านปุ่ม */
-
-  .btn-back::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 70%;
-    height: 100%;
-
-    background:
-      linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.40),
-        transparent
-      );
-
-    transform: skewX(-20deg);
-
-    transition:
-      left 0.6s ease;
-  }
-
-
-  .btn-back:hover::before {
-    left: 130%;
-  }
-
-
-  .btn-back:hover {
-    transform:
-      translateY(-4px)
-      scale(1.03);
-
-    background:
-      linear-gradient(
-        135deg,
-        #ffffff,
-        #f4e6ff
-      );
-
-    color: #704887;
-
-    border-color:
-      #d2a9e7;
-
-    box-shadow:
-      0 15px 35px
-      rgba(90, 45, 115, 0.25);
-  }
-
-
-  .btn-back span {
-    position: relative;
-
-    z-index: 2;
-
-    transition:
-      transform 0.3s ease;
-  }
-
-
-  .btn-back:hover span {
-    transform:
-      translateX(-4px);
-  }
-
-
-  /* =========================
-     ANIMATIONS
-  ========================= */
-
-  @keyframes pageAppear {
-
-    from {
-      opacity: 0;
-
-      transform:
-        translateY(25px)
-        scale(0.98);
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', 'Kanit', sans-serif;
     }
 
-    to {
-      opacity: 1;
 
-      transform:
-        translateY(0)
-        scale(1);
-    }
-  }
-
-
-  @keyframes fadeInUp {
-
-    from {
-      opacity: 0;
-
-      transform:
-        translateY(25px);
-    }
-
-    to {
-      opacity: 1;
-
-      transform:
-        translateY(0);
-    }
-  }
-
-
-  @keyframes glowFloat {
-
-    0%, 100% {
-      transform:
-        translate(0, 0);
-    }
-
-    50% {
-      transform:
-        translate(18px, 15px);
-    }
-  }
-
-
-  @keyframes bubbleFloat {
-
-    0%, 100% {
-      transform:
-        translateY(0);
-    }
-
-    50% {
-      transform:
-        translateY(-15px);
-    }
-  }
-
-
-  /* =========================
-     MOBILE
-  ========================= */
-
-  @media (max-width: 600px) {
+    /* =========================
+       BODY
+    ========================= */
 
     body {
-      padding: 25px 15px;
+      min-height: 100vh;
+      padding: 40px 20px;
 
-      align-items: flex-start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #ffffff;
+
+      position: relative;
+      overflow-x: hidden;
+
+      /* ม่วงกลาง ๆ สบายตา */
+      background:
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(255,255,255,0.35),
+          transparent 28%
+        ),
+
+        radial-gradient(
+          circle at 85% 80%,
+          rgba(225,205,245,0.35),
+          transparent 32%
+        ),
+
+        linear-gradient(
+          135deg,
+          #d4c0e4 0%,
+          #b99bd0 35%,
+          #a17bbd 70%,
+          #9470ae 100%
+        );
     }
 
+
+    /* =========================
+       BACKGROUND GLOW
+    ========================= */
+
+    .glow-bg-1 {
+      position: fixed;
+
+      width: 450px;
+      height: 450px;
+
+      top: -140px;
+      right: -120px;
+
+      background: rgba(255,255,255,0.28);
+
+      filter: blur(90px);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+      z-index: 1;
+
+      animation: glowFloat 9s ease-in-out infinite;
+    }
+
+
+    .glow-bg-2 {
+      position: fixed;
+
+      width: 400px;
+      height: 400px;
+
+      bottom: -130px;
+      left: -100px;
+
+      background: rgba(229,207,248,0.35);
+
+      filter: blur(90px);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+      z-index: 1;
+
+      animation: glowFloat 11s ease-in-out infinite reverse;
+    }
+
+
+    /* =========================
+       FLOWER DECORATION
+    ========================= */
+
+    .flower {
+      position: fixed;
+
+      z-index: 3;
+
+      pointer-events: none;
+
+      user-select: none;
+
+      opacity: 0.75;
+
+      filter:
+        drop-shadow(
+          0 5px 10px
+          rgba(82,50,105,0.15)
+        );
+
+      animation:
+        flowerFloat 6s ease-in-out infinite;
+    }
+
+
+    .flower-1 {
+      top: 7%;
+      left: 4%;
+
+      font-size: 55px;
+
+      transform: rotate(-15deg);
+    }
+
+
+    .flower-2 {
+      top: 20%;
+      right: 5%;
+
+      font-size: 38px;
+
+      animation-delay: 1.5s;
+
+      transform: rotate(15deg);
+    }
+
+
+    .flower-3 {
+      bottom: 8%;
+      left: 6%;
+
+      font-size: 45px;
+
+      animation-delay: 2.5s;
+
+      transform: rotate(10deg);
+    }
+
+
+    .flower-4 {
+      bottom: 13%;
+      right: 5%;
+
+      font-size: 58px;
+
+      animation-delay: 1s;
+
+      transform: rotate(-12deg);
+    }
+
+
+    /* กลีบดอกไม้เล็ก ๆ */
+
+    .petal {
+      position: fixed;
+
+      z-index: 2;
+
+      pointer-events: none;
+
+      color: rgba(255,245,255,0.65);
+
+      font-size: 20px;
+
+      animation:
+        petalFloat 8s ease-in-out infinite;
+    }
+
+
+    .petal-1 {
+      top: 35%;
+      left: 12%;
+    }
+
+
+    .petal-2 {
+      top: 55%;
+      right: 13%;
+
+      animation-delay: 2s;
+    }
+
+
+    .petal-3 {
+      bottom: 25%;
+      left: 18%;
+
+      font-size: 15px;
+
+      animation-delay: 4s;
+    }
+
+
+    .petal-4 {
+      top: 12%;
+      right: 20%;
+
+      font-size: 14px;
+
+      animation-delay: 1s;
+    }
+
+
+    /* =========================
+       CONTAINER
+    ========================= */
 
     .container {
-      margin-top: 15px;
+      max-width: 850px;
+
+      width: 100%;
+
+      position: relative;
+
+      z-index: 10;
+
+      animation:
+        pageAppear 0.9s cubic-bezier(.2,.8,.2,1);
     }
 
 
+    /* =========================
+       TOP TAG
+    ========================= */
+
     .top-bar {
-      margin-bottom: 12px;
+      display: flex;
+
+      justify-content: flex-end;
+
+      margin-bottom: 16px;
+
+      padding-right: 5px;
     }
 
 
     .header-tag {
-      font-size: 0.75rem;
+      font-size: 0.82rem;
 
-      padding: 6px 13px;
+      letter-spacing: 2px;
 
-      letter-spacing: 1.5px;
+      padding: 7px 17px;
+
+      color: #704b86;
+
+      background:
+        rgba(255,255,255,0.58);
+
+      border:
+        1px solid rgba(255,255,255,0.75);
+
+      border-radius: 30px;
+
+      backdrop-filter: blur(12px);
+
+      box-shadow:
+        0 6px 18px
+        rgba(83,51,105,0.12);
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
     }
 
+
+    .header-tag:hover {
+      transform: translateY(-2px);
+
+      background:
+        rgba(255,255,255,0.78);
+    }
+
+
+    /* =========================
+       CARD
+    ========================= */
 
     .intro-card {
-      padding: 35px 22px;
+      position: relative;
 
-      border-radius: 28px;
+      padding: 50px 50px 45px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.30),
+          rgba(247,236,255,0.18)
+        );
+
+      border:
+        1px solid rgba(255,255,255,0.62);
+
+      border-radius: 34px;
+
+      backdrop-filter: blur(25px);
+
+      -webkit-backdrop-filter: blur(25px);
+
+      box-shadow:
+
+        0 25px 65px
+        rgba(75,45,94,0.20),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.55);
+
+      overflow: hidden;
+
+      animation:
+        fadeInUp 0.9s ease-out;
     }
 
+
+    /* แสงด้านบนการ์ด */
+
+    .intro-card::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 12%;
+
+      width: 76%;
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.9),
+          transparent
+        );
+
+      border-radius: 50%;
+    }
+
+
+    /* วงแสงภายในการ์ด */
+
+    .intro-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 200px;
+      height: 200px;
+
+      top: -110px;
+      left: -90px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.15);
+
+      filter: blur(8px);
+
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       QUOTE
+    ========================= */
 
     .quote-icon {
-      font-size: 4rem;
+      font-size: 5rem;
 
-      right: 20px;
+      position: absolute;
+
+      top: 18px;
+      right: 38px;
+
+      opacity: 0.13;
+
+      color: #ffffff;
+
+      line-height: 1;
+
+      font-family: Georgia, serif;
+
+      pointer-events: none;
     }
 
+
+    /* =========================
+       TITLE
+    ========================= */
 
     .page-title {
-      font-size: 1.8rem;
+      position: relative;
 
-      margin-bottom: 25px;
+      z-index: 2;
 
-      gap: 9px;
+      font-size: 2.3rem;
+
+      font-weight: 700;
+
+      margin-bottom: 30px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding-bottom: 16px;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,0.35);
+
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff,
+          #fff8ff 50%,
+          #ead8f4
+        );
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+
+      filter:
+        drop-shadow(
+          0 4px 12px
+          rgba(80,48,105,0.18)
+        );
     }
 
 
+    .page-title span {
+      -webkit-text-fill-color: initial;
+
+      filter:
+        drop-shadow(
+          0 3px 6px
+          rgba(80,48,105,0.18)
+        );
+    }
+
+
+    /* =========================
+       TEXT
+    ========================= */
+
     .intro-text {
-      font-size: 1rem;
+      position: relative;
 
-      line-height: 1.9;
+      z-index: 2;
 
-      text-align: left;
+      font-size: 1.08rem;
+
+      line-height: 2;
+
+      color: #fffaff;
+
+      font-weight: 300;
+
+      text-align: justify;
+
+      text-shadow:
+        0 1px 8px
+        rgba(70,40,90,0.12);
     }
 
 
     .intro-text p {
-      text-indent: 2em;
+      margin-bottom: 25px;
 
-      margin-bottom: 22px;
+      text-indent: 2.5em;
     }
 
 
+    /* =========================
+       SIGNATURE
+    ========================= */
+
     .signature-section {
-      margin-top: 32px;
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 42px;
+
+      display: flex;
+
+      justify-content: flex-end;
+
+      text-align: center;
+    }
+
+
+    .signature-box {
+      min-width: 200px;
+
+      padding-top: 15px;
+
+      border-top:
+        1px dashed
+        rgba(255,255,255,0.50);
+
+      position: relative;
+    }
+
+
+    .signature-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 45px;
+      height: 3px;
+
+      top: -2px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      background: #e8c9f5;
+
+      border-radius: 20px;
+    }
+
+
+    .signature-title {
+      font-size: 0.92rem;
+
+      color: #f9efff;
+
+      margin-bottom: 5px;
+    }
+
+
+    .signature-name {
+      font-size: 1.15rem;
+
+      font-weight: 600;
+
+      color: #ffffff;
+
+      text-shadow:
+        0 3px 10px
+        rgba(70,40,90,0.18);
+    }
+
+
+    /* =========================
+       BACK BUTTON
+    ========================= */
+
+    .bottom-bar {
+      margin-top: 30px;
+
+      display: flex;
 
       justify-content: center;
     }
 
 
-    .signature-box {
-      min-width: 180px;
-    }
-
-
-    .bottom-bar {
-      margin-top: 22px;
-    }
-
-
     .btn-back {
-      width: 100%;
+      position: relative;
 
-      max-width: 250px;
+      overflow: hidden;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      padding: 14px 38px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ad82c7,
+          #956caf
+        );
+
+      border:
+        1.5px solid
+        rgba(255,255,255,0.9);
+
+      border-radius: 50px;
+
+      color: #ffffff;
+
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      font-weight: 600;
+
+      box-shadow:
+        0 10px 25px
+        rgba(75,43,95,0.22),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.35);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
     }
-  }
 
 
-  /* =========================
-     ลด Animation
-  ========================= */
+    .btn-back::before {
+      content: "";
 
-  @media (prefers-reduced-motion: reduce) {
+      position: absolute;
 
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
+      top: 0;
+      left: -100%;
 
-      animation-iteration-count: 1 !important;
+      width: 70%;
+      height: 100%;
 
-      transition-duration: 0.01ms !important;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.40),
+          transparent
+        );
+
+      transform: skewX(-20deg);
+
+      transition:
+        left 0.6s ease;
     }
-  }
-</style>
+
+
+    .btn-back:hover::before {
+      left: 130%;
+    }
+
+
+    .btn-back:hover {
+      transform:
+        translateY(-4px)
+        scale(1.03);
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #f4eaff
+        );
+
+      color: #704887;
+
+      border-color:
+        #d5b1e6;
+
+      box-shadow:
+        0 15px 35px
+        rgba(75,43,95,0.25);
+    }
+
+
+    .btn-back span {
+      position: relative;
+
+      z-index: 2;
+
+      transition:
+        transform 0.3s ease;
+    }
+
+
+    .btn-back:hover span {
+      transform:
+        translateX(-4px);
+    }
+
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes pageAppear {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(25px)
+          scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+
+    @keyframes fadeInUp {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+
+    @keyframes glowFloat {
+
+      0%,100% {
+        transform:
+          translate(0,0);
+      }
+
+      50% {
+        transform:
+          translate(18px,15px);
+      }
+    }
+
+
+    @keyframes flowerFloat {
+
+      0%,100% {
+        transform:
+          translateY(0)
+          rotate(-5deg);
+      }
+
+      50% {
+        transform:
+          translateY(-12px)
+          rotate(5deg);
+      }
+    }
+
+
+    @keyframes petalFloat {
+
+      0%,100% {
+        transform:
+          translate(0,0)
+          rotate(0deg);
+      }
+
+      50% {
+        transform:
+          translate(10px,-18px)
+          rotate(20deg);
+      }
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      body {
+        padding: 25px 15px;
+
+        align-items: flex-start;
+      }
+
+
+      .container {
+        margin-top: 15px;
+      }
+
+
+      .top-bar {
+        margin-bottom: 12px;
+      }
+
+
+      .header-tag {
+        font-size: 0.75rem;
+
+        padding: 6px 13px;
+
+        letter-spacing: 1.5px;
+      }
+
+
+      .intro-card {
+        padding: 35px 22px;
+
+        border-radius: 28px;
+      }
+
+
+      .quote-icon {
+        font-size: 4rem;
+
+        right: 20px;
+      }
+
+
+      .page-title {
+        font-size: 1.8rem;
+
+        margin-bottom: 25px;
+
+        gap: 9px;
+      }
+
+
+      .intro-text {
+        font-size: 1rem;
+
+        line-height: 1.9;
+
+        text-align: left;
+      }
+
+
+      .intro-text p {
+        text-indent: 2em;
+
+        margin-bottom: 22px;
+      }
+
+
+      .signature-section {
+        margin-top: 32px;
+
+        justify-content: center;
+      }
+
+
+      .signature-box {
+        min-width: 180px;
+      }
+
+
+      .bottom-bar {
+        margin-top: 22px;
+      }
+
+
+      .btn-back {
+        width: 100%;
+
+        max-width: 250px;
+      }
+
+
+      /* ดอกไม้บนมือถือ */
+
+      .flower-1 {
+        font-size: 38px;
+        left: 1%;
+      }
+
+      .flower-2 {
+        font-size: 28px;
+        right: 1%;
+      }
+
+      .flower-3 {
+        font-size: 32px;
+        left: 2%;
+      }
+
+      .flower-4 {
+        font-size: 40px;
+        right: 1%;
+      }
+
+      .petal {
+        font-size: 14px;
+      }
+    }
+
+
+    /* =========================
+       REDUCE MOTION
+    ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
 
-  <!-- แสงฟุ้งกระจายด้านหลัง -->
+  <!-- =========================
+       BACKGROUND LIGHT
+  ========================= -->
+
   <div class="glow-bg-1"></div>
   <div class="glow-bg-2"></div>
 
+
+  <!-- =========================
+       FLOWER DECORATION
+  ========================= -->
+
+  <div class="flower flower-1">🌸</div>
+  <div class="flower flower-2">🌷</div>
+  <div class="flower flower-3">🌼</div>
+  <div class="flower flower-4">🌺</div>
+
+  <div class="petal petal-1">✿</div>
+  <div class="petal petal-2">❀</div>
+  <div class="petal petal-3">✿</div>
+  <div class="petal petal-4">❀</div>
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
   <div class="container">
-    
-    <!-- แถบด้านบน -->
+
+    <!-- TOP TAG -->
+
     <div class="top-bar">
       <span class="header-tag">PREFACE</span>
     </div>
 
-    <!-- การ์ดคำนำ -->
+
+    <!-- INTRO CARD -->
+
     <div class="intro-card">
+
       <div class="quote-icon">“</div>
 
+
       <h1 class="page-title">
-        <span>📝</span> คำนำ
+        <span>📝</span>
+        คำนำ
       </h1>
 
+
       <div class="intro-text">
-        <p>
-          แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ประวัติการศึกษา การเข้าร่วมกิจกรรม และประสบการณ์ต่าง ๆ ที่ได้เรียนรู้ตลอดช่วงเวลาที่ผ่านมา เพื่อแสดงให้เห็นถึงความตั้งใจ ความสามารถ และความสนใจในด้านต่าง ๆ ของข้าพเจ้า
-        </p>
 
         <p>
-          ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานเล่มนี้จะช่วยให้ผู้อ่านได้รู้จักตัวตน ความสามารถ และความมุ่งมั่นของข้าพเจ้ามากยิ่งขึ้น รวมถึงเป็นส่วนหนึ่งในการแสดงความตั้งใจของข้าพเจ้าที่จะเข้าศึกษาต่อในระดับอุดมศึกษา
+          แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว
+          ประวัติการศึกษา การเข้าร่วมกิจกรรม และประสบการณ์ต่าง ๆ
+          ที่ได้เรียนรู้ตลอดช่วงเวลาที่ผ่านมา เพื่อแสดงให้เห็นถึงความตั้งใจ
+          ความสามารถ และความสนใจในด้านต่าง ๆ ของข้าพเจ้า
         </p>
+
+
+        <p>
+          ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานเล่มนี้
+          จะช่วยให้ผู้อ่านได้รู้จักตัวตน ความสามารถ และความมุ่งมั่น
+          ของข้าพเจ้ามากยิ่งขึ้น รวมถึงเป็นส่วนหนึ่งในการแสดงความตั้งใจ
+          ของข้าพเจ้าที่จะเข้าศึกษาต่อในระดับอุดมศึกษา
+        </p>
+
       </div>
 
-      <!-- ส่วนผู้จัดทำ -->
+
+      <!-- SIGNATURE -->
+
       <div class="signature-section">
+
         <div class="signature-box">
-          <div class="signature-title">จัดทำโดย</div>
-          <div class="signature-name">วารุณี ลิภูนนท์</div>
+
+          <div class="signature-title">
+            จัดทำโดย
+          </div>
+
+          <div class="signature-name">
+            วารุณี ลิภูนนท์
+          </div>
+
         </div>
+
       </div>
 
     </div>
 
-    <!-- ปุ่มย้อนกลับด้านล่าง -->
+
+    <!-- BACK BUTTON -->
+
     <div class="bottom-bar">
+
       <a href="main.html" class="btn-back">
-        <span>⬅</span> back
+
+        <span>⬅</span>
+
+        back
+
       </a>
+
     </div>
 
   </div>
