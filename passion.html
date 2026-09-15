@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ความสนใจในการศึกษาต่อ - Waruni Portfolio</title>
+
   <!-- Google Fonts: Kanit & Prompt -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -19,9 +20,22 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1f1227 0%, #3e264b 40%, #684279 75%, #A378B5 100%);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(213, 186, 225, 0.45) 0 2px, transparent 3px),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.5) 0 2px, transparent 3px),
+        radial-gradient(circle at 20% 80%, rgba(213, 186, 225, 0.35) 0 3px, transparent 4px),
+        radial-gradient(circle at 90% 75%, rgba(255, 255, 255, 0.35) 0 2px, transparent 3px),
+        linear-gradient(135deg, #7c5b8f 0%, #9571a8 42%, #b18ac0 72%, #c5a4ce 100%);
+
+      background-size:
+        170px 170px,
+        220px 220px,
+        190px 190px,
+        250px 250px,
+        100% 100%;
+
       color: #ffffff;
-      padding: 40px 20px;
+      padding: 45px 20px;
       position: relative;
       overflow-x: hidden;
       display: flex;
@@ -29,29 +43,81 @@
       align-items: center;
     }
 
-    /* ดวงไฟเรืองแสงด้านหลัง โทนม่วง #A378B5 และ ขาว */
+    /* แสงฟุ้งด้านหลัง */
     .glow-bg-1 {
       position: fixed;
-      width: 450px;
-      height: 450px;
-      background: rgba(163, 120, 181, 0.35);
-      filter: blur(120px);
+      width: 380px;
+      height: 380px;
+      background: rgba(231, 211, 238, 0.32);
+      filter: blur(90px);
       border-radius: 50%;
-      top: -50px;
-      right: -50px;
+      top: -120px;
+      right: -100px;
       pointer-events: none;
     }
 
     .glow-bg-2 {
       position: fixed;
-      width: 400px;
-      height: 400px;
-      background: rgba(255, 255, 255, 0.12);
-      filter: blur(100px);
+      width: 330px;
+      height: 330px;
+      background: rgba(219, 190, 229, 0.30);
+      filter: blur(85px);
       border-radius: 50%;
-      bottom: -50px;
-      left: -50px;
+      bottom: -100px;
+      left: -100px;
       pointer-events: none;
+    }
+
+    /* ฟองสบู่ตกแต่ง */
+    .bubble {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      animation: floatBubble 5s ease-in-out infinite;
+    }
+
+    .bubble-1 {
+      width: 45px;
+      height: 45px;
+      top: 13%;
+      left: 7%;
+    }
+
+    .bubble-2 {
+      width: 22px;
+      height: 22px;
+      top: 30%;
+      right: 8%;
+      animation-delay: 1s;
+    }
+
+    .bubble-3 {
+      width: 32px;
+      height: 32px;
+      bottom: 18%;
+      left: 8%;
+      animation-delay: 2s;
+    }
+
+    .bubble-4 {
+      width: 16px;
+      height: 16px;
+      bottom: 30%;
+      right: 12%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes floatBubble {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .container {
@@ -61,59 +127,106 @@
       z-index: 10;
     }
 
-    /* แถบด้านบนแสดง Tag */
+    /* แถบด้านบน */
     .top-bar {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .header-tag {
-      font-size: 0.9rem;
-      padding: 6px 16px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      padding: 7px 17px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 30px;
       color: #ffffff;
+      box-shadow: 0 5px 18px rgba(82, 55, 96, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    /* การ์ดกระจกฝ้า Glassmorphism */
+    /* การ์ดหลัก */
     .content-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 28px;
-      padding: 45px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 20px 50px rgba(31, 18, 39, 0.4);
+      position: relative;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 30px;
+      padding: 43px 48px;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow:
+        0 20px 45px rgba(83, 57, 94, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
       animation: fadeInUp 0.8s ease-out;
+      overflow: hidden;
     }
+
+    /* แสงเล็ก ๆ บนการ์ด */
+    .content-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.10);
+      top: -100px;
+      right: -60px;
+      filter: blur(5px);
+      pointer-events: none;
+    }
+
+    .content-card::after {
+      content: "✦";
+      position: absolute;
+      right: 25px;
+      bottom: 18px;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.45);
+      pointer-events: none;
+    }
+
+    /* หัวข้อ */
     .page-title {
       font-size: 2.2rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #ffffff 0%, #f1e7f5 50%, #A378B5 100%);
+      font-weight: 600;
+
+      background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #f9f0fc 50%,
+        #ead8ef 100%
+      );
+
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
       margin-bottom: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      padding-bottom: 15px;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.30);
+      padding-bottom: 17px;
+
+      text-shadow: 0 3px 15px rgba(77, 48, 91, 0.18);
     }
 
-    /* โซนข้อความเนื้อหา */
+    /* โซนข้อความ */
     .text-content {
-      font-size: 1.05rem;
-      line-height: 1.9;
+      font-size: 1.04rem;
+      line-height: 1.95;
       color: #ffffff;
       font-weight: 300;
       text-align: justify;
+      text-shadow: 0 1px 5px rgba(65, 43, 75, 0.16);
     }
 
     .text-content p {
-      margin-bottom: 20px;
+      margin-bottom: 21px;
       text-indent: 2.5em;
     }
 
@@ -121,9 +234,9 @@
       margin-bottom: 0;
     }
 
-    /* โซนปุ่มย้อนกลับด้านล่างสุด */
+    /* ปุ่มย้อนกลับ */
     .bottom-bar {
-      margin-top: 35px;
+      margin-top: 25px;
       display: flex;
       justify-content: center;
     }
@@ -131,64 +244,134 @@
     .btn-back {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 14px 36px;
-      background: #A378B5;
-      border: 1.5px solid #ffffff;
+      gap: 9px;
+
+      padding: 12px 32px;
+
+      background: rgba(255, 255, 255, 0.16);
+      border: 1.5px solid rgba(255, 255, 255, 0.65);
       border-radius: 50px;
+
       color: #ffffff;
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
+      font-size: 0.98rem;
+      font-weight: 500;
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
       transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(163, 120, 181, 0.3);
+
+      box-shadow:
+        0 8px 20px rgba(79, 53, 91, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
 
     .btn-back:hover {
-      background: #ffffff;
-      color: #533263;
-      border-color: #A378B5;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.85);
+      color: #765184;
+      border-color: #ffffff;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(82, 55, 96, 0.25);
     }
 
+    .btn-back span {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-back:hover span {
+      transform: translateX(-4px);
+    }
+
+    /* Animation */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(22px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
+    /* มือถือ */
     @media (max-width: 650px) {
+
+      body {
+        padding: 28px 14px;
+      }
+
+      .top-bar {
+        margin-bottom: 12px;
+      }
+
+      .header-tag {
+        font-size: 0.72rem;
+        padding: 6px 13px;
+      }
+
       .content-card {
-        padding: 30px 20px;
+        padding: 30px 21px;
+        border-radius: 24px;
       }
-      .logo-img {
-        width: 100px;
-        height: 100px;
-      }
+
       .page-title {
-        font-size: 1.7rem;
+        font-size: 1.65rem;
+        gap: 8px;
+        margin-bottom: 24px;
+        padding-bottom: 14px;
       }
+
       .text-content {
-        font-size: 0.98rem;
+        font-size: 0.94rem;
+        line-height: 1.85;
+        text-align: left;
+      }
+
+      .text-content p {
+        text-indent: 1.8em;
+        margin-bottom: 18px;
+      }
+
+      .btn-back {
+        padding: 11px 28px;
+        font-size: 0.92rem;
+      }
+
+      .bubble-1 {
+        width: 30px;
+        height: 30px;
+      }
+
+      .bubble-2 {
+        width: 15px;
+        height: 15px;
+      }
+
+      .bubble-3 {
+        width: 22px;
+        height: 22px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <!-- แสงฟุ้งกระจายด้านหลัง -->
   <div class="glow-bg-1"></div>
   <div class="glow-bg-2"></div>
 
+  <!-- ฟองสบู่ตกแต่งเล็ก ๆ -->
+  <div class="bubble bubble-1"></div>
+  <div class="bubble bubble-2"></div>
+  <div class="bubble bubble-3"></div>
+  <div class="bubble bubble-4"></div>
+
   <div class="container">
-    
+
     <!-- แถบด้านบน -->
     <div class="top-bar">
       <span class="header-tag">EDUCATION INTEREST</span>
@@ -196,19 +379,22 @@
 
     <!-- การ์ดเนื้อหา -->
     <div class="content-card">
+
       <h1 class="page-title">
         <span>🎓</span> ความสนใจในการศึกษาต่อ
       </h1>
 
       <div class="text-content">
+
         <p>
           จุดเริ่มต้นของความสนใจในการศึกษาต่อของข้าพเจ้า เกิดจากการค้นหาว่าตนเองชอบและถนัดในด้านใด โดยข้าพเจ้าเป็นคนที่สนใจการทำงานในสายอาชีพทางการแพทย์และมีความตั้งใจอยากทำงานในโรงพยาบาลอยู่แล้ว จนได้รู้จักสาขารังสีเทคนิคผ่านช่องทางอินเทอร์เน็ต ซึ่งมีทั้งนักศึกษาและผู้ที่ประกอบอาชีพด้านรังสีเทคนิคออกมาแบ่งปันประสบการณ์และแนะนำลักษณะการเรียนและการทำงาน ทำให้ข้าพเจ้าเริ่มสนใจและอยากศึกษาสาขานี้อย่างจริงจังมากขึ้น
         </p>
+
         <p>
           เหตุผลทำให้ข้าพเจ้ารู้สึกว่าสาขานี้เหมาะกับตนเอง คือความตั้งใจที่จะเป็นส่วนหนึ่งในการช่วยเหลือผู้คน ข้าพเจ้าชื่นชมบุคลากรทางการแพทย์ที่มีความรู้ ความสามารถ และมีจิตใจพร้อมช่วยเหลือผู้ป่วยโดยไม่เลือกปฏิบัติ ไม่ว่าผู้ป่วยจะกำลังเผชิญกับปัญหาหรือความเจ็บป่วยในรูปแบบใด ข้าพเจ้าก็อยากเป็นหนึ่งในบุคลากรที่พร้อมช่วยเหลือและทำหน้าที่ของตนเองอย่างเต็มที่ แม้จะไม่ได้เป็นแพทย์ก็ตาม เมื่อได้ศึกษาลักษณะการทำงานของนักรังสีเทคนิค รวมถึงโอกาสในการประกอบอาชีพแล้ว ข้าพเจ้าจึงเกิดความมั่นใจและตั้งใจที่จะศึกษาต่อในสาขารังสีเทคนิค เพื่อพัฒนาความรู้และทักษะ นำความสามารถของตนเองไปใช้เป็นส่วนหนึ่งในการดูแลช่วยเหลือผู้ป่วยในอนาคต รวมถึงสามารถยกระดับครอบครัวของข้าพเจ้าอีกด้วย
         </p>
-      </div>
 
+      </div>
     </div>
 
     <!-- ปุ่มย้อนกลับด้านล่างสุด -->
