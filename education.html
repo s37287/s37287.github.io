@@ -1,388 +1,443 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ประวัติการศึกษา - Waruni Portfolio</title>
-  <!-- Google Fonts: Kanit & Prompt -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+body {
+  min-height: 100vh;
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Prompt', 'Kanit', sans-serif;
-    }
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(190, 145, 213, 0.35),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(210, 170, 225, 0.22),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #35213f 0%,
+      #4a2d55 35%,
+      #63406f 68%,
+      #79538a 100%
+    );
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1f1227 0%, #3e264b 40%, #684279 75%, #A378B5 100%);
-      color: #ffffff;
-      padding: 40px 20px;
-      position: relative;
-      overflow-x: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  color: #ffffff;
+  padding: 40px 20px;
+  position: relative;
+  overflow-x: hidden;
 
-    /* ดวงไฟเรืองแสงด้านหลัง โทนม่วง #A378B5 และ ขาว */
-    .glow-bg-1 {
-      position: fixed;
-      width: 450px;
-      height: 450px;
-      background: rgba(163, 120, 181, 0.35);
-      filter: blur(120px);
-      border-radius: 50%;
-      top: -50px;
-      right: -50px;
-      pointer-events: none;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .glow-bg-2 {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: rgba(255, 255, 255, 0.12);
-      filter: blur(100px);
-      border-radius: 50%;
-      bottom: -50px;
-      left: -50px;
-      pointer-events: none;
-    }
 
-    .container {
-      max-width: 850px;
-      width: 100%;
-      position: relative;
-      z-index: 10;
-    }
+/* แสงม่วงนุ่ม ๆ ไม่จ้า */
 
-    /* แถบด้านบนแสดง Tag */
-    .top-bar {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 20px;
-    }
+.glow-bg-1 {
+  position: fixed;
 
-    .header-tag {
-      font-size: 0.9rem;
-      padding: 6px 16px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
-      color: #ffffff;
-    }
+  width: 430px;
+  height: 430px;
 
-    /* การ์ดกระจกฝ้า Glassmorphism */
-    .edu-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 28px;
-      padding: 45px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 20px 50px rgba(31, 18, 39, 0.4);
-      animation: fadeInUp 0.8s ease-out;
-    }
+  background: rgba(188, 145, 211, 0.25);
 
-    .page-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #ffffff 0%, #f1e7f5 50%, #A378B5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 35px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      padding-bottom: 15px;
-    }
+  filter: blur(115px);
 
-    /* เส้นไทม์ไลน์ (Timeline) */
-    .timeline {
-      position: relative;
-      padding-left: 30px;
-    }
+  border-radius: 50%;
 
-    /* เส้นแนวตั้งเรืองแสง */
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 12px;
-      top: 15px;
-      bottom: 25px;
-      width: 3px;
-      background: linear-gradient(180deg, #A378B5 0%, #ffffff 100%);
-      border-radius: 3px;
-      box-shadow: 0 0 12px rgba(163, 120, 181, 0.5);
-    }
+  top: -80px;
+  right: -80px;
 
-    .timeline-item {
-      position: relative;
-      margin-bottom: 28px;
-    }
+  pointer-events: none;
+}
 
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
+.glow-bg-2 {
+  position: fixed;
 
-    /* จุดวงกลมบนเส้นไทม์ไลน์ */
-    .timeline-dot {
-      position: absolute;
-      left: -30px;
-      top: 18px;
-      transform: translateX(-50%);
-      width: 16px;
-      height: 16px;
-      background: #A378B5;
-      border: 4px solid #1f1227;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #A378B5;
-      transition: all 0.3s ease;
-    }
+  width: 380px;
+  height: 380px;
 
-    .timeline-item:hover .timeline-dot {
-      background: #ffffff;
-      transform: translateX(-50%) scale(1.3);
-      box-shadow: 0 0 15px #ffffff;
-    }
+  background: rgba(225, 200, 235, 0.13);
 
-    /* กล่องข้อมูลระดับการศึกษา */
-    .timeline-content {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      transition: all 0.3s ease;
-    }
+  filter: blur(100px);
 
-    .timeline-item:hover .timeline-content {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateX(8px);
-      box-shadow: 0 10px 25px rgba(163, 120, 181, 0.25);
-    }
+  border-radius: 50%;
 
-    /* ไฮไลท์การ์ดระดับมัธยมปลาย (ระดับปัจจุบัน) */
-    .timeline-item.active .timeline-content {
-      background: rgba(163, 120, 181, 0.25);
-      border: 1.5px solid #ffffff;
-      box-shadow: 0 10px 25px rgba(163, 120, 181, 0.35);
-    }
+  bottom: -80px;
+  left: -80px;
 
-    .timeline-item.active .timeline-dot {
-      background: #ffffff;
-      box-shadow: 0 0 15px #ffffff;
-    }
+  pointer-events: none;
+}
 
-    .edu-icon {
-      font-size: 2rem;
-      background: rgba(163, 120, 181, 0.3);
-      width: 55px;
-      height: 55px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
 
-    .edu-info .level-badge {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #ffffff;
-      background: #A378B5;
-      padding: 3px 12px;
-      border-radius: 10px;
-      margin-bottom: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
+/* การ์ดหลัก */
 
-    .edu-info .school-name {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #ffffff;
-    }
+.edu-card {
+  position: relative;
 
-    .timeline-item.active .school-name {
-      color: #ffffff;
-    }
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.07)
+    );
 
-    /* โซนปุ่มย้อนกลับด้านล่างสุด */
-    .bottom-bar {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-    }
+  border: 1px solid rgba(255, 255, 255, 0.25);
 
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 36px;
-      background: #A378B5;
-      border: 1.5px solid #ffffff;
-      border-radius: 50px;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(163, 120, 181, 0.3);
-    }
+  border-radius: 30px;
 
-    .btn-back:hover {
-      background: #ffffff;
-      color: #533263;
-      border-color: #A378B5;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
-    }
+  padding: 45px;
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 
-    @media (max-width: 600px) {
-      .edu-card {
-        padding: 30px 20px;
-      }
-      .page-title {
-        font-size: 1.7rem;
-      }
-      .timeline {
-        padding-left: 22px;
-      }
-      .timeline-dot {
-        left: -22px;
-      }
-      .timeline-content {
-        padding: 16px;
-        gap: 12px;
-      }
-      .edu-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 1.5rem;
-      }
-      .edu-info .school-name {
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
+  box-shadow:
+    0 25px 60px rgba(30, 17, 37, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 
-  <!-- แสงฟุ้งกระจายด้านหลัง -->
-  <div class="glow-bg-1"></div>
-  <div class="glow-bg-2"></div>
+  animation: fadeInUp 0.8s ease-out;
+}
 
-  <div class="container">
-    
-    <!-- แถบด้านบน -->
-    <div class="top-bar">
-      <span class="header-tag">EDUCATION</span>
-    </div>
 
-    <!-- การ์ดประวัติการศึกษา -->
-    <div class="edu-card">
+/* ดอกไม้เล็ก ๆ บนการ์ด */
 
-      <h1 class="page-title">
-        <span>🎓</span> ประวัติการศึกษา
-      </h1>
+.edu-card::before {
+  content: "🪻";
 
-      <!-- เส้นไทม์ไลน์ -->
-      <div class="timeline">
+  position: absolute;
 
-        <!-- 1. ระดับอนุบาล -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="edu-icon">🌱</div>
-            <div class="edu-info">
-              <span class="level-badge">ระดับอนุบาล</span>
-              <div class="school-name">โรงเรียนเขาคันทรง</div>
-            </div>
-          </div>
-        </div>
+  top: 18px;
+  right: 24px;
 
-        <!-- 2. ประถมศึกษาตอนต้น -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="edu-icon">✏️</div>
-            <div class="edu-info">
-              <span class="level-badge">ระดับประถมศึกษาตอนต้น</span>
-              <div class="school-name">โรงเรียนบุญประทีปวิทยาคาร</div>
-            </div>
-          </div>
-        </div>
+  font-size: 24px;
 
-        <!-- 3. ประถมศึกษาตอนปลาย -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="edu-icon">📚</div>
-            <div class="edu-info">
-              <span class="level-badge">ระดับประถมศึกษาตอนปลาย</span>
-              <div class="school-name">โรงเรียนบุญประทีปวิทยาคาร</div>
-            </div>
-          </div>
-        </div>
+  opacity: 0.65;
 
-        <!-- 4. มัธยมศึกษาตอนต้น -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="edu-icon">🏫</div>
-            <div class="edu-info">
-              <span class="level-badge">ระดับมัธยมศึกษาตอนต้น</span>
-              <div class="school-name">โรงเรียนบุญประทีปวิทยาคาร</div>
-            </div>
-          </div>
-        </div>
+  animation: flowerFloat 4s ease-in-out infinite;
+}
 
-        <!-- 5. มัธยมศึกษาตอนปลาย (ปัจจุบัน - ไฮไลท์พิเศษ) -->
-        <div class="timeline-item active">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="edu-icon">🎓</div>
-            <div class="edu-info">
-              <span class="level-badge">ระดับมัธยมศึกษาตอนปลาย (ปัจจุบัน)</span>
-              <div class="school-name">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</div>
-            </div>
-          </div>
-        </div>
+.edu-card::after {
+  content: "🌸";
 
-      </div>
+  position: absolute;
 
-    </div>
+  bottom: 18px;
+  left: 24px;
 
-    <!-- ปุ่มย้อนกลับด้านล่างสุด -->
-    <div class="bottom-bar">
-      <a href="main.html" class="btn-back">
-        <span>⬅</span> back
-      </a>
-    </div>
+  font-size: 21px;
 
-  </div>
+  opacity: 0.55;
 
-</body>
-</html>
+  animation: flowerFloat 4.5s ease-in-out infinite;
+}
+
+@keyframes flowerFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(6deg);
+  }
+}
+
+
+/* หัวข้อ */
+
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #f0e2f5 45%,
+      #d1a9df 100%
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 35px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.20);
+
+  padding-bottom: 15px;
+}
+
+
+/* เส้น Timeline */
+
+.timeline::before {
+  content: '';
+
+  position: absolute;
+
+  left: 12px;
+
+  top: 15px;
+  bottom: 25px;
+
+  width: 3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #bd91ce 0%,
+      #a875bd 50%,
+      #dfc5e8 100%
+    );
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 0 10px rgba(189, 145, 206, 0.35);
+}
+
+
+/* จุด Timeline */
+
+.timeline-dot {
+  position: absolute;
+
+  left: -30px;
+  top: 18px;
+
+  transform: translateX(-50%);
+
+  width: 16px;
+  height: 16px;
+
+  background: #b985ca;
+
+  border: 4px solid #4a2d55;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 10px rgba(194, 145, 211, 0.55);
+
+  transition: all 0.3s ease;
+}
+
+
+/* กล่องแต่ละระดับ */
+
+.timeline-content {
+  position: relative;
+
+  background:
+    rgba(255, 255, 255, 0.065);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 20px;
+
+  padding: 20px 24px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 8px 20px rgba(40, 22, 49, 0.12);
+}
+
+
+/* ลายดอกไม้เล็ก ๆ ในกล่อง */
+
+.timeline-content::after {
+  content: "✿";
+
+  position: absolute;
+
+  right: 15px;
+  top: 9px;
+
+  color: rgba(235, 213, 241, 0.35);
+
+  font-size: 15px;
+}
+
+
+/* Hover */
+
+.timeline-item:hover .timeline-content {
+  background:
+    rgba(205, 166, 220, 0.13);
+
+  border-color:
+    rgba(235, 214, 241, 0.32);
+
+  transform:
+    translateX(7px);
+
+  box-shadow:
+    0 10px 25px rgba(119, 76, 139, 0.25);
+}
+
+
+/* ระดับปัจจุบัน */
+
+.timeline-item.active .timeline-content {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(171, 119, 194, 0.28),
+      rgba(255, 255, 255, 0.08)
+    );
+
+  border:
+    1.5px solid rgba(239, 224, 245, 0.55);
+
+  box-shadow:
+    0 12px 30px rgba(105, 62, 125, 0.28);
+}
+
+
+/* จุดของระดับปัจจุบัน */
+
+.timeline-item.active .timeline-dot {
+  background: #ead8f0;
+
+  border-color: #79538a;
+
+  box-shadow:
+    0 0 16px rgba(236, 216, 241, 0.75);
+}
+
+
+/* ไอคอน */
+
+.edu-icon {
+  font-size: 2rem;
+
+  background:
+    rgba(177, 126, 197, 0.22);
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  box-shadow:
+    0 6px 15px rgba(40, 22, 49, 0.15);
+
+  transition: all 0.3s ease;
+}
+
+
+/* ป้ายระดับ */
+
+.edu-info .level-badge {
+  display: inline-block;
+
+  font-size: 0.8rem;
+
+  font-weight: 600;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9667a8,
+      #80538f
+    );
+
+  padding: 3px 12px;
+
+  border-radius: 10px;
+
+  margin-bottom: 4px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.20);
+
+  box-shadow:
+    0 4px 10px rgba(47, 26, 57, 0.18);
+}
+
+
+/* ชื่อโรงเรียน */
+
+.edu-info .school-name {
+  font-size: 1.15rem;
+
+  font-weight: 600;
+
+  color: #ffffff;
+
+  line-height: 1.5;
+}
+
+
+/* ปุ่มย้อนกลับ */
+
+.btn-back {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 14px 36px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9667a8,
+      #80538f
+    );
+
+  border:
+    1.5px solid rgba(255, 255, 255, 0.75);
+
+  border-radius: 50px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 8px 22px rgba(55, 31, 66, 0.25);
+}
+
+.btn-back:hover {
+  background: #f5edf7;
+
+  color: #684475;
+
+  border-color: #c29acf;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(215, 187, 224, 0.30);
+}
