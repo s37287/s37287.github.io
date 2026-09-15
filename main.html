@@ -18,25 +18,50 @@
       font-family: 'Prompt', 'Kanit', sans-serif;
     }
 
+    /* =========================
+       พื้นหลัง Witchy Purple
+    ========================= */
+
     body {
       min-height: 100vh;
+
       background:
-        radial-gradient(circle at 15% 20%, rgba(205, 174, 218, 0.35), transparent 28%),
-        radial-gradient(circle at 85% 15%, rgba(175, 143, 194, 0.30), transparent 25%),
-        radial-gradient(circle at 75% 85%, rgba(225, 207, 232, 0.25), transparent 30%),
-        linear-gradient(135deg, #62506d 0%, #7d6488 45%, #92789d 75%, #a58bad 100%);
+        radial-gradient(
+          circle at 18% 18%,
+          rgba(211, 180, 239, 0.28),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 82% 20%,
+          rgba(163, 120, 181, 0.25),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(201, 165, 225, 0.22),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #2d2038 0%,
+          #453050 32%,
+          #60426d 65%,
+          #806094 100%
+        );
 
       color: #ffffff;
       padding: 40px 20px;
+
       position: relative;
       overflow-x: hidden;
+
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
     /* =========================
-       พื้นหลังตกแต่ง
+       แสงม่วงฟุ้ง ๆ
     ========================= */
 
     .glow-bg-1,
@@ -49,105 +74,189 @@
     }
 
     .glow-bg-1 {
-      width: 420px;
-      height: 420px;
-      top: -120px;
+      width: 430px;
+      height: 430px;
+
+      top: -150px;
       right: -100px;
-      background: rgba(220, 198, 227, 0.25);
-      filter: blur(70px);
+
+      background: rgba(193, 150, 218, 0.28);
+
+      filter: blur(85px);
+
+      animation: witchyGlow 8s ease-in-out infinite;
     }
 
     .glow-bg-2 {
-      width: 380px;
-      height: 380px;
-      bottom: -140px;
+      width: 390px;
+      height: 390px;
+
+      bottom: -150px;
       left: -100px;
-      background: rgba(211, 188, 220, 0.22);
-      filter: blur(75px);
+
+      background: rgba(172, 128, 198, 0.25);
+
+      filter: blur(90px);
+
+      animation: witchyGlow 10s ease-in-out infinite reverse;
     }
 
     .glow-bg-3 {
-      width: 260px;
-      height: 260px;
-      top: 45%;
-      left: 45%;
-      background: rgba(255, 255, 255, 0.08);
-      filter: blur(80px);
+      width: 300px;
+      height: 300px;
+
+      top: 40%;
+      left: 42%;
+
+      background: rgba(238, 218, 248, 0.08);
+
+      filter: blur(90px);
     }
 
-    /* ฟองสบู่ด้านหลัง */
-    .bubble {
+    /* =========================
+       ดาวเล็ก ๆ
+    ========================= */
+
+    body::before {
+      content: "✦  ˚  ✧  ⋆  ✦  ˚  ✧  ⋆  ✦";
+
       position: fixed;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
+
+      top: 7%;
+      left: 5%;
+
+      color: rgba(246, 229, 255, 0.55);
+
+      font-size: 1rem;
+      letter-spacing: 15px;
+
+      white-space: nowrap;
+
       pointer-events: none;
+
       z-index: 1;
-      animation: floatBubble 8s ease-in-out infinite;
+
+      animation: sparkle 5s ease-in-out infinite;
     }
 
-    .bubble::after {
-      content: "";
-      position: absolute;
-      width: 28%;
-      height: 28%;
-      top: 15%;
-      left: 18%;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.30);
-      filter: blur(2px);
-    }
+    body::after {
+      content: "✧  ⋆  ☾  ⋆  ✦  ˚  ✧";
 
-    .bubble-1 {
-      width: 75px;
-      height: 75px;
-      top: 10%;
-      left: 7%;
-      animation-delay: 0s;
-    }
+      position: fixed;
 
-    .bubble-2 {
-      width: 38px;
-      height: 38px;
-      top: 25%;
-      right: 8%;
-      animation-delay: 1.5s;
-    }
-
-    .bubble-3 {
-      width: 105px;
-      height: 105px;
-      bottom: 12%;
+      bottom: 8%;
       right: 5%;
-      animation-delay: 3s;
+
+      color: rgba(239, 215, 252, 0.50);
+
+      font-size: 1.1rem;
+      letter-spacing: 12px;
+
+      white-space: nowrap;
+
+      pointer-events: none;
+
+      z-index: 1;
+
+      animation: sparkle 6s ease-in-out infinite reverse;
     }
 
-    .bubble-4 {
-      width: 48px;
-      height: 48px;
-      bottom: 20%;
-      left: 10%;
-      animation-delay: 2s;
+    /* =========================
+       พระจันทร์ตกแต่ง
+    ========================= */
+
+    .moon {
+      position: fixed;
+
+      width: 95px;
+      height: 95px;
+
+      top: 9%;
+      right: 8%;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 35%,
+          #f8eaff,
+          #d8b9e9 55%,
+          #a77abd 100%
+        );
+
+      box-shadow:
+        0 0 25px rgba(222, 188, 239, 0.35),
+        0 0 60px rgba(177, 125, 202, 0.18);
+
+      opacity: 0.75;
+
+      z-index: 1;
+
+      animation: moonFloat 7s ease-in-out infinite;
     }
 
-    .bubble-5 {
-      width: 25px;
-      height: 25px;
-      top: 55%;
-      left: 4%;
-      animation-delay: 4s;
+    .moon::after {
+      content: "";
+
+      position: absolute;
+
+      width: 95px;
+      height: 95px;
+
+      border-radius: 50%;
+
+      background: #3d2a49;
+
+      top: -13px;
+      left: 23px;
+
+      opacity: 0.95;
     }
 
-    @keyframes floatBubble {
-      0%, 100% {
-        transform: translateY(0) translateX(0);
-      }
+    /* =========================
+       ดาวตกแต่งเล็ก ๆ
+    ========================= */
 
-      50% {
-        transform: translateY(-18px) translateX(8px);
-      }
+    .star {
+      position: fixed;
+
+      color: rgba(244, 225, 255, 0.75);
+
+      z-index: 2;
+
+      pointer-events: none;
+
+      text-shadow:
+        0 0 10px rgba(232, 200, 247, 0.7);
+
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    .star-1 {
+      top: 23%;
+      left: 13%;
+      font-size: 1.2rem;
+    }
+
+    .star-2 {
+      top: 72%;
+      left: 8%;
+      font-size: 0.8rem;
+      animation-delay: 1s;
+    }
+
+    .star-3 {
+      bottom: 22%;
+      right: 17%;
+      font-size: 1rem;
+      animation-delay: 1.8s;
+    }
+
+    .star-4 {
+      top: 48%;
+      right: 7%;
+      font-size: 0.7rem;
+      animation-delay: 2.5s;
     }
 
     /* =========================
@@ -157,7 +266,9 @@
     .container {
       max-width: 900px;
       width: 100%;
+
       position: relative;
+
       z-index: 10;
     }
 
@@ -167,90 +278,166 @@
 
     .top-bar {
       display: flex;
+
       justify-content: center;
       align-items: center;
+
       margin-bottom: 25px;
     }
 
     .header-title {
       font-size: 1.5rem;
+
       font-weight: 700;
+
       letter-spacing: 1.5px;
 
-      color: #ffffff;
+      color: #fff8ff;
 
       text-shadow:
-        0 2px 12px rgba(65, 45, 75, 0.35);
+        0 0 15px rgba(215, 178, 233, 0.45),
+        0 3px 12px rgba(28, 17, 35, 0.45);
 
       position: relative;
+    }
+
+    .header-title::before {
+      content: "☾";
+
+      position: absolute;
+
+      left: -38px;
+      top: -3px;
+
+      font-size: 1.4rem;
+
+      color: #e5c8f3;
+
+      text-shadow:
+        0 0 12px rgba(220, 181, 239, 0.8);
     }
 
     .header-title::after {
       content: "";
+
       display: block;
-      width: 55px;
-      height: 3px;
-      margin: 7px auto 0;
+
+      width: 70px;
+      height: 2px;
+
+      margin: 8px auto 0;
+
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.65);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #d9b5ea,
+          #ffffff,
+          #d9b5ea,
+          transparent
+        );
+
+      box-shadow:
+        0 0 12px rgba(222, 190, 239, 0.55);
     }
 
     /* =========================
-       Main Glass Card
+       Main Card
     ========================= */
 
     .menu-card {
       position: relative;
+
       overflow: hidden;
 
-      background: rgba(255, 255, 255, 0.13);
-      border: 1px solid rgba(255, 255, 255, 0.30);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.13),
+          rgba(170, 126, 191, 0.12)
+        );
 
-      border-radius: 30px;
-      padding: 42px 30px;
+      border: 1px solid rgba(238, 216, 248, 0.30);
 
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+      border-radius: 32px;
+
+      padding: 45px 30px;
+
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
 
       box-shadow:
-        0 20px 55px rgba(70, 51, 78, 0.22),
-        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+        0 25px 65px rgba(24, 14, 31, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20),
+        0 0 35px rgba(150, 101, 178, 0.08);
 
       text-align: center;
 
-      animation: fadeInUp 0.8s ease-out;
+      animation: fadeInUp 0.9s ease-out;
     }
 
-    /* แสงด้านบนของการ์ด */
+    /* เส้นเวทมนตร์ด้านบน */
+
     .menu-card::before {
       content: "";
+
       position: absolute;
-      width: 260px;
-      height: 100px;
-      top: -60px;
-      left: 50%;
-      transform: translateX(-50%);
 
-      background: rgba(255, 255, 255, 0.15);
-      filter: blur(35px);
+      top: 0;
+      left: 15%;
+
+      width: 70%;
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(233, 205, 247, 0.85),
+          transparent
+        );
+
+      box-shadow:
+        0 0 15px rgba(216, 175, 235, 0.65);
+
       border-radius: 50%;
+    }
 
-      pointer-events: none;
+    /* ลายแสงกลางการ์ด */
+
+    .menu-card::after {
+      content: "✦";
+
+      position: absolute;
+
+      top: 15px;
+      right: 25px;
+
+      font-size: 1.2rem;
+
+      color: rgba(237, 211, 248, 0.5);
+
+      text-shadow:
+        0 0 12px rgba(228, 192, 242, 0.8);
     }
 
     .menu-title {
       position: relative;
+
       z-index: 2;
 
       font-size: 1.6rem;
+
       font-weight: 600;
-      color: #ffffff;
+
+      color: #fffaff;
 
       margin-bottom: 30px;
 
       text-shadow:
-        0 2px 10px rgba(65, 45, 75, 0.30);
+        0 2px 12px rgba(31, 18, 39, 0.45);
     }
 
     /* =========================
@@ -259,93 +446,159 @@
 
     .nav-grid {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+
+      gap: 17px;
     }
 
     .nav-btn {
       position: relative;
+
       overflow: hidden;
 
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255, 255, 255, 0.24);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.10),
+          rgba(151, 105, 177, 0.12)
+        );
 
-      padding: 20px 12px;
-      border-radius: 20px;
+      border: 1px solid rgba(239, 218, 248, 0.23);
+
+      padding: 21px 12px;
+
+      border-radius: 21px;
 
       color: #ffffff;
+
       text-decoration: none;
 
       font-size: 0.95rem;
+
       font-weight: 600;
 
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
 
       transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
 
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
       justify-content: center;
-      gap: 8px;
 
-      min-height: 105px;
+      gap: 9px;
+
+      min-height: 108px;
 
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.10);
     }
 
-    /* แสงวิ่งบนปุ่ม */
+    /* แสงเวทมนตร์วิ่งผ่านปุ่ม */
+
     .nav-btn::before {
       content: "";
-      position: absolute;
-      width: 80px;
-      height: 180%;
-      top: -40%;
-      left: -100px;
 
-      background: rgba(255, 255, 255, 0.12);
+      position: absolute;
+
+      width: 75px;
+      height: 180%;
+
+      top: -40%;
+      left: -110px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(236, 211, 247, 0.28),
+          transparent
+        );
 
       transform: rotate(20deg);
-      transition: left 0.5s ease;
+
+      transition: left 0.6s ease;
 
       pointer-events: none;
     }
 
-    .nav-btn .icon {
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-      position: relative;
-      z-index: 2;
+    .nav-btn::after {
+      content: "✦";
+
+      position: absolute;
+
+      top: 7px;
+      right: 10px;
+
+      font-size: 0.65rem;
+
+      color: rgba(239, 216, 249, 0.35);
+
+      transition: all 0.3s ease;
     }
 
-    .nav-btn {
+    .nav-btn .icon {
+      font-size: 1.55rem;
+
+      transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+
       position: relative;
+
       z-index: 2;
     }
 
     .nav-btn:hover {
-      background: rgba(190, 157, 202, 0.55);
-      border-color: rgba(255, 255, 255, 0.60);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(184, 142, 207, 0.38),
+          rgba(124, 83, 151, 0.30)
+        );
 
-      transform: translateY(-5px) scale(1.02);
+      border-color: rgba(242, 221, 251, 0.60);
+
+      transform:
+        translateY(-6px)
+        scale(1.025);
 
       box-shadow:
-        0 12px 28px rgba(79, 57, 88, 0.22),
-        0 0 18px rgba(218, 194, 226, 0.20);
+        0 14px 30px rgba(35, 20, 44, 0.28),
+        0 0 20px rgba(188, 139, 211, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
     }
 
     .nav-btn:hover::before {
-      left: 120%;
+      left: 125%;
+    }
+
+    .nav-btn:hover::after {
+      color: #f2d9ff;
+
+      transform:
+        scale(1.4)
+        rotate(25deg);
     }
 
     .nav-btn:hover .icon {
-      transform: translateY(-3px) scale(1.12) rotate(-3deg);
+      transform:
+        translateY(-4px)
+        scale(1.15)
+        rotate(-4deg);
+
+      filter:
+        drop-shadow(
+          0 0 8px rgba(236, 203, 249, 0.65)
+        );
     }
 
     /* =========================
@@ -354,79 +607,107 @@
 
     .bottom-bar {
       margin-top: 35px;
+
       display: flex;
+
       justify-content: center;
     }
 
     .btn-back {
       position: relative;
+
       overflow: hidden;
 
       display: inline-flex;
+
       align-items: center;
+
       gap: 10px;
 
-      padding: 14px 36px;
+      padding: 14px 38px;
 
-      background: rgba(174, 143, 187, 0.70);
-      border: 1.5px solid rgba(255, 255, 255, 0.70);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(159, 112, 181, 0.75),
+          rgba(119, 79, 142, 0.75)
+        );
+
+      border: 1.5px solid rgba(245, 228, 251, 0.70);
 
       border-radius: 50px;
 
       color: #ffffff;
+
       text-decoration: none;
 
       font-size: 1rem;
+
       font-weight: 600;
 
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
 
       box-shadow:
-        0 8px 22px rgba(70, 50, 78, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        0 9px 25px rgba(28, 17, 35, 0.30),
+        0 0 15px rgba(174, 125, 199, 0.15);
     }
 
     .btn-back::before {
       content: "";
+
       position: absolute;
+
       width: 80px;
-      height: 150%;
-      top: -25%;
+      height: 160%;
+
+      top: -30%;
       left: -110px;
 
-      background: rgba(255, 255, 255, 0.18);
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.30),
+          transparent
+        );
 
       transform: rotate(20deg);
-      transition: left 0.5s ease;
+
+      transition: left 0.6s ease;
     }
 
     .btn-back span {
       position: relative;
+
       z-index: 2;
     }
 
-    .btn-back {
-      isolation: isolate;
-    }
-
     .btn-back:hover {
-      background: rgba(255, 255, 255, 0.85);
-      color: #634c6d;
+      background:
+        linear-gradient(
+          135deg,
+          #f3e3fa,
+          #d8b9e9
+        );
 
-      border-color: rgba(255, 255, 255, 0.95);
+      color: #563964;
 
-      transform: translateY(-4px);
+      border-color: #ffffff;
+
+      transform:
+        translateY(-4px)
+        scale(1.03);
 
       box-shadow:
-        0 12px 28px rgba(70, 50, 78, 0.20),
-        0 0 18px rgba(255, 255, 255, 0.22);
+        0 13px 30px rgba(30, 17, 38, 0.30),
+        0 0 22px rgba(218, 183, 236, 0.30);
     }
 
     .btn-back:hover::before {
-      left: 120%;
+      left: 125%;
     }
 
     /* =========================
@@ -436,12 +717,62 @@
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(25px);
+
+        transform:
+          translateY(30px)
+          scale(0.98);
       }
 
       to {
         opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+    @keyframes witchyGlow {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(18px, -12px) scale(1.05);
+      }
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 0.35;
         transform: translateY(0);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: translateY(-5px);
+      }
+    }
+
+    @keyframes moonFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.25);
       }
     }
 
@@ -450,6 +781,7 @@
     ========================= */
 
     @media (max-width: 768px) {
+
       body {
         padding: 30px 16px;
       }
@@ -459,11 +791,28 @@
       }
 
       .menu-card {
-        padding: 35px 22px;
+        padding: 38px 22px;
+      }
+
+      .moon {
+        width: 70px;
+        height: 70px;
+
+        right: 5%;
+        top: 7%;
+      }
+
+      .moon::after {
+        width: 70px;
+        height: 70px;
+
+        left: 17px;
+        top: -9px;
       }
     }
 
     @media (max-width: 500px) {
+
       .header-title {
         font-size: 1.3rem;
       }
@@ -477,39 +826,43 @@
       }
 
       .menu-card {
-        padding: 30px 18px;
-        border-radius: 25px;
+        padding: 32px 18px;
+
+        border-radius: 27px;
       }
 
       .nav-btn {
-        min-height: 90px;
+        min-height: 92px;
       }
 
-      .bubble-1 {
-        width: 55px;
-        height: 55px;
+      .moon {
+        opacity: 0.45;
       }
 
-      .bubble-3 {
-        width: 75px;
-        height: 75px;
+      body::before,
+      body::after {
+        font-size: 0.7rem;
+        letter-spacing: 7px;
       }
     }
-
   </style>
 </head>
 
-<body><!-- แสงเรืองด้านหลัง -->
+<body>
+
+  <!-- แสงเรืองด้านหลัง -->
   <div class="glow-bg-1"></div>
   <div class="glow-bg-2"></div>
   <div class="glow-bg-3"></div>
 
-  <!-- ฟองสบู่ตกแต่ง -->
-  <div class="bubble bubble-1"></div>
-  <div class="bubble bubble-2"></div>
-  <div class="bubble bubble-3"></div>
-  <div class="bubble bubble-4"></div>
-  <div class="bubble bubble-5"></div>
+  <!-- พระจันทร์ -->
+  <div class="moon"></div>
+
+  <!-- ดาวตกแต่ง -->
+  <div class="star star-1">✦</div>
+  <div class="star star-2">✧</div>
+  <div class="star star-3">✦</div>
+  <div class="star star-4">⋆</div>
 
   <div class="container">
 
