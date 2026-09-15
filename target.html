@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>คณะ สาขาและมหาลัยที่สนใจ - Waruni Portfolio</title>
+
   <!-- Google Fonts: Kanit & Prompt -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,26 +20,115 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1f1227 0%, #3e264b 40%, #684279 75%, #A378B5 100%);
+
+      /* โทนม่วงกลาง ไม่มืดและไม่สว่างเกินไป */
+      background:
+        radial-gradient(circle at 85% 10%, rgba(215, 184, 235, 0.60), transparent 30%),
+        radial-gradient(circle at 10% 90%, rgba(231, 208, 242, 0.45), transparent 30%),
+        linear-gradient(
+          135deg,
+          #654579 0%,
+          #76538b 42%,
+          #8e69a3 72%,
+          #a77fba 100%
+        );
+
       color: #ffffff;
       padding: 40px 20px;
       position: relative;
       overflow-x: hidden;
+
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    /* ดวงไฟเรืองแสงด้านหลัง โทนม่วง #A378B5 และ ขาว */
+    /* =====================================
+       อิโมจิตกแต่งลอย ๆ รอบหน้า
+       ===================================== */
+
+    .decoration {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.72;
+
+      animation: floating 5s ease-in-out infinite;
+    }
+
+    .deco-1 {
+      top: 8%;
+      left: 5%;
+      font-size: 26px;
+      animation-delay: 0s;
+    }
+
+    .deco-2 {
+      top: 17%;
+      right: 5%;
+      font-size: 21px;
+      animation-delay: 1s;
+    }
+
+    .deco-3 {
+      top: 45%;
+      left: 3%;
+      font-size: 20px;
+      animation-delay: 2s;
+    }
+
+    .deco-4 {
+      top: 62%;
+      right: 3%;
+      font-size: 26px;
+      animation-delay: 0.7s;
+    }
+
+    .deco-5 {
+      bottom: 12%;
+      left: 7%;
+      font-size: 22px;
+      animation-delay: 1.5s;
+    }
+
+    .deco-6 {
+      bottom: 6%;
+      right: 8%;
+      font-size: 23px;
+      animation-delay: 2.5s;
+    }
+
+    .deco-7 {
+      top: 30%;
+      right: 8%;
+      font-size: 16px;
+      animation-delay: 3s;
+    }
+
+    @keyframes floating {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(8deg);
+      }
+    }
+
+    /* =====================================
+       แสงฟุ้ง
+       ===================================== */
+
     .glow-bg-1 {
       position: fixed;
       width: 450px;
       height: 450px;
-      background: rgba(163, 120, 181, 0.35);
-      filter: blur(120px);
+      background: rgba(214, 185, 232, 0.35);
+      filter: blur(110px);
       border-radius: 50%;
-      top: -50px;
-      right: -50px;
+      top: -80px;
+      right: -80px;
       pointer-events: none;
     }
 
@@ -46,13 +136,17 @@
       position: fixed;
       width: 400px;
       height: 400px;
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.18);
       filter: blur(100px);
       border-radius: 50%;
-      bottom: -50px;
-      left: -50px;
+      bottom: -80px;
+      left: -80px;
       pointer-events: none;
     }
+
+    /* =====================================
+       Container
+       ===================================== */
 
     .container {
       max-width: 850px;
@@ -61,7 +155,10 @@
       z-index: 10;
     }
 
-    /* แถบด้านบนแสดง Tag */
+    /* =====================================
+       แถบด้านบน
+       ===================================== */
+
     .top-bar {
       display: flex;
       justify-content: flex-end;
@@ -70,81 +167,272 @@
 
     .header-tag {
       font-size: 0.9rem;
-      padding: 6px 16px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 7px 18px;
+
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+
       border-radius: 20px;
       color: #ffffff;
+
+      box-shadow:
+        0 6px 18px rgba(67, 42, 82, 0.15);
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      transition: all 0.3s ease;
     }
 
-    /* การ์ดกระจกฝ้า Glassmorphism */
+    .header-tag:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    /* =====================================
+       การ์ดหลัก
+       ===================================== */
+
     .content-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 28px;
+      position: relative;
+
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.40);
+
+      border-radius: 30px;
       padding: 50px 45px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 20px 50px rgba(31, 18, 39, 0.4);
+
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      box-shadow:
+        0 25px 60px rgba(70, 45, 85, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+
       animation: fadeInUp 0.8s ease-out;
     }
-    /* รูปภาพด้านบน */
+
+    /* ดอกไม้ตกแต่งบนการ์ด */
+
+    .content-card::before {
+      content: "🪻";
+      position: absolute;
+      top: 20px;
+      right: 25px;
+
+      font-size: 25px;
+      opacity: 0.8;
+
+      animation: sway 3s ease-in-out infinite;
+    }
+
+    .content-card::after {
+      content: "🌷";
+      position: absolute;
+      bottom: 20px;
+      left: 25px;
+
+      font-size: 23px;
+      opacity: 0.75;
+
+      animation: sway 3.5s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% {
+        transform: rotate(-5deg) translateY(0);
+      }
+
+      50% {
+        transform: rotate(8deg) translateY(-5px);
+      }
+    }
+
+    /* =====================================
+       รูปภาพด้านบน
+       ===================================== */
+
     .profile-image {
       display: flex;
       justify-content: center;
       margin-bottom: 25px;
+      position: relative;
+    }
+
+    .profile-image::before {
+      content: "🌸";
+      position: absolute;
+
+      left: calc(50% - 100px);
+      top: 5px;
+
+      font-size: 22px;
+      animation: flowerFloat 3s ease-in-out infinite;
+    }
+
+    .profile-image::after {
+      content: "🦋";
+      position: absolute;
+
+      right: calc(50% - 105px);
+      bottom: 0;
+
+      font-size: 22px;
+      animation: butterflyFloat 4s ease-in-out infinite;
     }
 
     .profile-image img {
       width: 150px;
       height: 150px;
+
       object-fit: cover;
       border-radius: 50%;
+
+      border: 5px solid rgba(255, 255, 255, 0.75);
+
+      box-shadow:
+        0 10px 30px rgba(71, 45, 86, 0.25),
+        0 0 25px rgba(218, 187, 235, 0.25);
+
+      transition: all 0.35s ease;
     }
+
+    .profile-image img:hover {
+      transform: scale(1.04);
+
+      box-shadow:
+        0 15px 35px rgba(71, 45, 86, 0.30),
+        0 0 35px rgba(225, 194, 240, 0.35);
+    }
+
+    @keyframes flowerFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+
+      50% {
+        transform: translateY(-7px) rotate(7deg);
+      }
+    }
+
+    @keyframes butterflyFloat {
+      0%, 100% {
+        transform: translateY(0) translateX(0) rotate(-5deg);
+      }
+
+      50% {
+        transform: translateY(-8px) translateX(5px) rotate(8deg);
+      }
+    }
+
+    /* =====================================
+       หัวข้อ
+       ===================================== */
 
     .page-title {
       font-size: 2rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #ffffff 0%, #f1e7f5 50%, #A378B5 100%);
+
+      background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #f8edfc 45%,
+        #ead7f1 100%
+      );
+
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
       margin-bottom: 30px;
+
       display: flex;
       align-items: center;
       gap: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+
       padding-bottom: 15px;
     }
 
-    /* โซนเน้นข้อความข้อมูลสำคัญ */
+    /* =====================================
+       กล่องข้อมูล
+       ===================================== */
+
     .info-box {
-      background: rgba(255, 255, 255, 0.08);
-      border-left: 4px solid #A378B5;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      border-right: 1px solid rgba(255, 255, 255, 0.15);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
+      position: relative;
+
+      background: rgba(255, 255, 255, 0.12);
+
+      border-left: 4px solid #d8b5e8;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+      border-radius: 18px;
+
       padding: 25px 30px;
       margin-bottom: 20px;
+
+      box-shadow:
+        0 8px 20px rgba(72, 43, 89, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+      transition: all 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-4px);
+
+      background: rgba(255, 255, 255, 0.17);
+
+      border-left-color: #e4c9ef;
+
+      box-shadow:
+        0 12px 28px rgba(72, 43, 89, 0.15),
+        0 0 20px rgba(216, 181, 232, 0.15);
+    }
+
+    .info-box::after {
+      content: "✿";
+      position: absolute;
+
+      right: 18px;
+      top: 12px;
+
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 18px;
     }
 
     .info-label {
       font-size: 0.95rem;
-      color: #f1e7f5;
+
+      color: #f8edfc;
+
       margin-bottom: 8px;
+
       letter-spacing: 0.5px;
     }
 
     .info-value {
       font-size: 1.4rem;
+
       font-weight: 600;
+
       color: #ffffff;
+
       line-height: 1.5;
+
+      padding-right: 20px;
     }
 
-    /* โซนปุ่มย้อนกลับด้านล่างสุด */
+    /* =====================================
+       ปุ่มย้อนกลับ
+       ===================================== */
+
     .bottom-bar {
       margin-top: 35px;
+
       display: flex;
       justify-content: center;
     }
@@ -152,63 +440,147 @@
     .btn-back {
       display: inline-flex;
       align-items: center;
+
       gap: 10px;
+
       padding: 14px 36px;
-      background: #A378B5;
-      border: 1.5px solid #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #aa7fc0,
+          #9168a7
+        );
+
+      border: 1.5px solid rgba(255, 255, 255, 0.90);
+
       border-radius: 50px;
+
       color: #ffffff;
+
       text-decoration: none;
+
       font-size: 1rem;
       font-weight: 600;
+
       backdrop-filter: blur(10px);
+
       transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(163, 120, 181, 0.3);
+
+      box-shadow:
+        0 10px 25px rgba(82, 51, 101, 0.20),
+        0 0 15px rgba(215, 181, 231, 0.12);
     }
 
     .btn-back:hover {
       background: #ffffff;
-      color: #533263;
-      border-color: #A378B5;
+
+      color: #725083;
+
+      border-color: #a77bbb;
+
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
+
+      box-shadow:
+        0 12px 28px rgba(255, 255, 255, 0.25),
+        0 0 20px rgba(215, 181, 231, 0.20);
     }
+
+    /* =====================================
+       Animation เปิดหน้า
+       ===================================== */
 
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
+    /* =====================================
+       Mobile
+       ===================================== */
+
     @media (max-width: 600px) {
+
+      body {
+        padding: 25px 15px;
+      }
+
       .content-card {
         padding: 35px 20px;
+        border-radius: 24px;
       }
+
       .page-title {
         font-size: 1.5rem;
       }
+
       .info-value {
         font-size: 1.15rem;
+      }
+
+      .profile-image img {
+        width: 130px;
+        height: 130px;
+      }
+
+      .profile-image::before {
+        left: calc(50% - 90px);
+      }
+
+      .profile-image::after {
+        right: calc(50% - 90px);
+      }
+
+      .deco-1 {
+        left: 2%;
+      }
+
+      .deco-2 {
+        right: 2%;
+      }
+
+      .deco-3 {
+        left: 1%;
+      }
+
+      .deco-4 {
+        right: 1%;
+      }
+
+      .btn-back {
+        padding: 12px 30px;
       }
     }
   </style>
 </head>
+
 <body>
+
+  <!-- อิโมจิตกแต่งรอบหน้า -->
+  <div class="decoration deco-1">🪻</div>
+  <div class="decoration deco-2">🌷</div>
+  <div class="decoration deco-3">🌸</div>
+  <div class="decoration deco-4">🦋</div>
+  <div class="decoration deco-5">💜</div>
+  <div class="decoration deco-6">🌷</div>
+  <div class="decoration deco-7">✨</div>
 
   <!-- แสงฟุ้งกระจายด้านหลัง -->
   <div class="glow-bg-1"></div>
   <div class="glow-bg-2"></div>
 
   <div class="container">
-    
+
     <!-- แถบด้านบน -->
     <div class="top-bar">
-      <span class="header-tag">TARGET FACULTY</span>
+      <span class="header-tag">🪻 TARGET FACULTY 🌷</span>
     </div>
 
     <!-- การ์ดเนื้อหา -->
@@ -232,7 +604,9 @@
       <!-- กล่องข้อมูลหลักสูตรและสาขา -->
       <div class="info-box">
         <div class="info-label">หลักสูตร / สาขาวิชา</div>
-        <div class="info-value">หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชารังสีเทคนิค (ภาษาไทย ปกติ) ⚛️🩻</div>
+        <div class="info-value">
+          หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชารังสีเทคนิค (ภาษาไทย ปกติ) ⚛️🩻
+        </div>
       </div>
 
     </div>
